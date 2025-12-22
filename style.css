@@ -5,27 +5,32 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #f2f2f2;
+  background: #f4f4f4;
   color: #222;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 /* HEADER / HERO */
 .header {
-  background: linear-gradient(to bottom, #1a1a1a, #000);
-  color: white;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+              url("../images/church-bg.jpg") center/cover no-repeat;
+  color: #fff;
   text-align: center;
-  padding: 70px 20px 60px;
+  padding: 80px 20px 70px;
 }
 
 .logo {
-  width: 120px;
+  width: 110px;
   margin-bottom: 15px;
 }
 
+.logo.small {
+  width: 70px;
+}
+
 .header h1 {
-  font-size: 36px;
-  margin: 10px 0 5px;
+  font-size: 38px;
+  margin: 10px 0 6px;
   letter-spacing: 1px;
 }
 
@@ -41,12 +46,15 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   padding: 14px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navbar a {
   color: #fff;
   text-decoration: none;
-  margin: 8px 14px;
+  margin: 8px 16px;
   font-size: 15px;
   font-weight: 600;
   transition: color 0.3s;
@@ -56,16 +64,15 @@ body {
   color: #d4af37;
 }
 
-/* MAIN CONTENT WRAPPER */
+/* SECTIONS */
 .section {
   background: #fff;
   max-width: 1000px;
-  margin: 40px auto;
-  padding: 45px 30px;
+  margin: 45px auto;
+  padding: 45px 35px;
   border-radius: 6px;
 }
 
-/* LIGHT SECTIONS */
 .section.light {
   background: #fafafa;
 }
@@ -79,12 +86,12 @@ body {
 
 .section h3 {
   color: #3b1d0f;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
 /* LISTS */
 .section ul {
-  padding-left: 20px;
+  padding-left: 22px;
 }
 
 .section ul li {
@@ -94,15 +101,9 @@ body {
 /* FOOTER */
 .footer {
   background: #000;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 40px 20px;
-  margin-top: 60px;
-}
-
-.footer .logo {
-  width: 70px;
-  margin-bottom: 10px;
 }
 
 .footer p {
@@ -110,7 +111,7 @@ body {
   opacity: 0.85;
 }
 
-/* MOBILE FIX */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .header h1 {
     font-size: 26px;
@@ -120,4 +121,4 @@ body {
     margin: 25px 12px;
     padding: 30px 20px;
   }
-  }
+}

@@ -1,64 +1,123 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  line-height: 1.6;
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f2f2f2;
+  color: #222;
+  line-height: 1.8;
+}
+
+/* HEADER / HERO */
 .header {
-  background: #3b1d0f;
+  background: linear-gradient(to bottom, #1a1a1a, #000);
   color: white;
   text-align: center;
-  padding: 30px 15px;
+  padding: 70px 20px 60px;
 }
 
 .logo {
-  width: 100px;
-  margin-bottom: 10px;
+  width: 120px;
+  margin-bottom: 15px;
 }
 
-.logo.small {
-  width: 60px;
+.header h1 {
+  font-size: 36px;
+  margin: 10px 0 5px;
+  letter-spacing: 1px;
 }
 
 .tagline {
-  font-style: italic;
+  font-size: 17px;
+  opacity: 0.9;
 }
 
+/* NAVBAR */
 .navbar {
-  background: #000;
-  text-align: center;
-  padding: 12px;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 14px 10px;
 }
 
 .navbar a {
-  color: white;
-  margin: 0 12px;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  margin: 8px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
 .navbar a:hover {
-  color: gold;
+  color: #d4af37;
 }
 
+/* MAIN CONTENT WRAPPER */
 .section {
-  background: white;
-  padding: 30px 20px;
-  margin: 15px;
+  background: #fff;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 45px 30px;
+  border-radius: 6px;
 }
 
+/* LIGHT SECTIONS */
 .section.light {
-  background: #eaeaea;
+  background: #fafafa;
 }
 
+/* HEADINGS */
 .section h2 {
   color: #3b1d0f;
+  font-size: 28px;
+  margin-bottom: 18px;
 }
 
+.section h3 {
+  color: #3b1d0f;
+  margin-top: 30px;
+}
+
+/* LISTS */
+.section ul {
+  padding-left: 20px;
+}
+
+.section ul li {
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
 .footer {
-  background: #3b1d0f;
+  background: #000;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
+  margin-top: 60px;
 }
+
+.footer .logo {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .section {
+    margin: 25px 12px;
+    padding: 30px 20px;
+  }
+  }

@@ -88,7 +88,11 @@ HEADER & NAV
 }
 
 .logo {
-  height: 60px;
+  height: 60px;       /* keep height */
+  width: 60px;        /* set width same as height */
+  border-radius: 50%; /* makes it round */
+  object-fit: cover;  /* ensures image fits nicely inside the circle */
+  border: 2px solid #ffffff; /* optional white border */
 }
 
 .logo-area h1 {

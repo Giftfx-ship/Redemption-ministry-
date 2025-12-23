@@ -71,8 +71,6 @@ HEADER & NAV
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #1e3a8a, #2563eb, #38bdf8);
-  background-size: 400% 400%;
-  animation: cloudShift 20s ease infinite;
 }
 
 .navbar {
@@ -91,10 +89,6 @@ HEADER & NAV
 
 .logo {
   height: 60px;
-  width: 60px;
-  border-radius: 50%; /* Round logo */
-  object-fit: cover;
-  border: 2px solid #ffffff;
 }
 
 .logo-area h1 {
@@ -171,10 +165,6 @@ HERO SECTION
   font-size: 3rem;
   margin-bottom: 15px;
   color: #eff6ff;
-  background: linear-gradient(135deg, #60a5fa, #2563eb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: cloudShift 10s ease infinite;
 }
 
 .hero-content .intro {
@@ -257,14 +247,12 @@ NEXT SERVICE COUNTDOWN
   font-size: 2.2rem;
   font-weight: 700;
   display: block;
-  color: #ffffff;
 }
 
 .clock div small {
   font-size: 0.75rem;
   letter-spacing: 1px;
   opacity: 0.9;
-  color: #ffffff;
 }
 
 /* -------------------------------
@@ -346,39 +334,4 @@ FOOTER
 }
 
 .footer-grid a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.footer-grid a:hover {
-  color: #dbeafe;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 12px;
-  font-size: 0.9rem;
-  color: #ffffff;
-}
-
-/* -------------------------------
-ANIMATIONS
-----------------------------------*/
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-
-.fade-up {
-  opacity: 0;
-  animation: fadeUp 1.3s forwards;
-}
-
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeUp {
-  to { opacity: 1; }
-  }
+  color:

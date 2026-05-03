@@ -1,221 +1,538 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Redemption Ministries | The Church of the Firstborn</title>
-  <meta name="description" content="Welcome to Redemption Ministries — a Christ-centered ministry raising a redeemed generation through the Word and Spirit of God.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Redemption Ministries Worldwide | The Church of the Firstborn</title>
+  <meta name="description" content="Redemption Ministries Worldwide — Raising a redeemed generation through God's Word. Experience salvation, testimonies, and life-changing teachings. Join us in Port Harcourt or online.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Redemption Ministries | Raising a Redeemed Generation">
-  <meta property="og:description" content="A Christ-centered ministry committed to redemption, restoration, and spiritual growth.">
-  <meta property="og:image" content="images/logo.png">
-  <meta property="og:type" content="website">
+  <!-- Font Awesome 6, Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <link rel="stylesheet" href="style.css">
+    :root {
+      --bg-dark: #0a0c17;
+      --bg-surface: rgba(15, 18, 35, 0.88);
+      --gold-primary: #D4AF37;
+      --gold-light: #F5D76E;
+      --gold-dim: rgba(212, 175, 55, 0.2);
+      --crimson: #9b1d2c;
+      --text-light: #fdfbf7;
+      --text-muted: #c9c6b5;
+      --shadow-gold: 0 12px 40px rgba(212, 175, 55, 0.2);
+      --gradient-gold: linear-gradient(135deg, #D4AF37, #F5D76E, #C5A028);
+      --gradient-hero: linear-gradient(135deg, rgba(10,12,23,0.92), rgba(100,30,40,0.7));
+      --transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Divine atmospheric background */
+    .glory-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: radial-gradient(circle at 20% 30%, rgba(212,175,55,0.12) 0%, rgba(0,0,0,0) 55%),
+                  radial-gradient(circle at 85% 70%, rgba(155,29,44,0.2) 0%, transparent 60%);
+    }
+
+    .floating-dust {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .dust {
+      position: absolute;
+      background: radial-gradient(circle, rgba(212,175,55,0.3), transparent);
+      border-radius: 50%;
+      animation: floatDust 12s infinite alternate ease-in-out;
+    }
+    @keyframes floatDust {
+      0% { transform: translate(0,0) scale(1); opacity: 0.2; }
+      100% { transform: translate(30px, -40px) scale(1.3); opacity: 0.6; }
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header / Nav */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1.2rem 2rem;
+      background: rgba(8, 10, 22, 0.7);
+      backdrop-filter: blur(14px);
+      border-radius: 3rem;
+      margin: 1.5rem 2rem;
+      border: 1px solid var(--gold-dim);
+      position: relative;
+      z-index: 100;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--gradient-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #0a0c17;
+      font-weight: bold;
+      box-shadow: 0 0 16px rgba(212,175,55,0.6);
+    }
+    .logo-area h1 {
+      font-size: 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: -0.5px;
+    }
+    .tagline {
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-menu a:hover { color: var(--gold-primary); }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+      cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .nav-menu { display: none; width: 100%; flex-direction: column; text-align: center; padding: 1.5rem 0; gap: 1rem; }
+      .nav-menu.active { display: flex; }
+      .menu-btn { display: block; }
+      .navbar { flex-wrap: wrap; }
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 4rem 1rem;
+    }
+    .hero-content h1 {
+      font-size: 4rem;
+      font-family: 'Cormorant Garamond', serif;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 1.2rem auto;
+      opacity: 0.9;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .btn {
+      padding: 0.85rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background: var(--gradient-gold);
+      color: #0a0c17;
+      border: none;
+      box-shadow: 0 6px 18px rgba(212,175,55,0.3);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--gold-primary);
+      background: transparent;
+      color: var(--gold-primary);
+    }
+    .btn:hover {
+      transform: translateY(-4px);
+      filter: brightness(1.05);
+    }
+    .scripture-badge {
+      background: rgba(0,0,0,0.4);
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* Sections general */
+    .section {
+      padding: 5rem 0;
+      margin: 2rem 0;
+      border-radius: 2rem;
+      background: var(--bg-surface);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--gold-dim);
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      border-left: 6px solid var(--gold-primary);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .steps-grid, .pillars-grid, .teachings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .step-card, .pillar-card, .teaching-card {
+      background: rgba(0,0,0,0.45);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: var(--transition);
+      border-bottom: 3px solid var(--gold-dim);
+    }
+    .step-card:hover, .pillar-card:hover, .testimonial-card:hover {
+      transform: translateY(-8px);
+      border-bottom-color: var(--gold-primary);
+      box-shadow: var(--shadow-gold);
+    }
+    .step-card h3 i, .pillar-card h3 i { color: var(--gold-primary); margin-right: 10px; }
+    .scripture { font-style: italic; margin-top: 1rem; font-size: 0.9rem; color: var(--gold-light); }
+
+    /* Testimonials carousel style */
+    .testimonials-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding: 1rem 0.5rem;
+      scroll-snap-type: x mandatory;
+    }
+    .testimonial-card {
+      min-width: 300px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+    }
+    .testimonial-card i.fa-quote-left { color: var(--gold-primary); font-size: 1.8rem; opacity: 0.6; margin-bottom: 0.8rem; }
+    .testimonial-name { margin-top: 1rem; font-weight: 600; color: var(--gold-light); }
+
+    /* Pillars & blog excerpts */
+    .pillars-grid .pillar-card p { margin-top: 0.8rem; font-size: 0.95rem; }
+    .blog-excerpt {
+      margin-top: 2rem;
+      background: rgba(0,0,0,0.3);
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+    }
+    .blog-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .read-more { color: var(--gold-primary); text-decoration: none; font-weight: 500; }
+
+    /* Connect + Footer */
+    .connect-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .connect-card {
+      background: rgba(0,0,0,0.4);
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      flex: 1;
+      min-width: 200px;
+    }
+    footer {
+      background: #050714;
+      padding: 2.5rem 0;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .newsletter-form input {
+      flex: 2;
+      padding: 0.8rem;
+      border-radius: 3rem;
+      border: none;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    .newsletter-form button {
+      background: var(--gold-primary);
+      border: none;
+      padding: 0 1.5rem;
+      border-radius: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.5rem; }
+      .section-title { font-size: 1.8rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
 </head>
 <body>
+<div class="glory-bg"></div>
+<div class="floating-dust" id="dustContainer"></div>
 
-  <!-- Header -->
-  <header class="header" id="home">
-    <nav class="navbar container">
-      <div class="logo-area">
-        <img src="images/logo.png" alt="Redemption Ministries Logo" class="logo">
-        <div>
-          <h1>Redemption Ministries</h1>
-          <p class="tagline">The Church of the Firstborn</p>
-        </div>
+<header>
+  <nav class="navbar">
+    <div class="logo-area">
+      <div class="logo-icon"><i class="fas fa-dove"></i></div>
+      <div><h1>Redemption Ministries</h1><p class="tagline">The Church of the Firstborn • Worldwide</p></div>
+    </div>
+    <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#salvation">Salvation</a></li>
+      <li><a href="#pillars">Pillars</a></li>
+      <li><a href="#teachings">Teachings</a></li>
+      <li><a href="#testimonies">Testimonies</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Stop and pray.<br>Prayer Changes things.</h1>
+      <p class="hero-sub">You too can be Part Of God's Promises — A redeemed generation walking in firstborn authority.</p>
+      <div class="btn-group">
+        <a href="#salvation" class="btn btn-primary">Believe & Be Saved</a>
+        <a href="#testimonies" class="btn btn-outline">See Testimonies</a>
       </div>
-
-      <button class="menu-btn" id="menu-btn">☰</button>
-
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#activities">Weekly Activities</a></li>
-        <li><a href="#beliefs-why-us">Beliefs & Why Worship</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero container">
-      <div class="hero-content fade-in">
-        <h2>Welcome Home</h2>
-        <p class="intro">
-          A place of redemption, restoration, and spiritual growth where lives are transformed
-          through the Word of God and the power of the Holy Spirit.
-        </p>
-        <div class="buttons">
-          <a href="#about" class="btn primary">Plan Your Visit</a>
-          <a href="#beliefs-why-us" class="btn outline">Partner With Us</a>
-        </div>
-        <p class="meta">📅 Sundays — 8:00 AM | 📍 3RD MARINE GATE, BY WALTER ODILI JUNCTION, WARRI.</p>
-      </div>
-
-      <div class="hero-clock slide-in">
-        <div class="clock-card">
-          <h3>Next Service Countdown</h3>
-          <div id="clock" class="clock">
-            <div><span id="days">0</span><small>Days</small></div>
-            <div><span id="hours">0</span><small>Hours</small></div>
-            <div><span id="minutes">0</span><small>Minutes</small></div>
-            <div><span id="seconds">0</span><small>Seconds</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </header>
-
-  <!-- About -->
-  <section id="about" class="section fade-up">
-    <div class="container">
-      <h2>About Redemption Ministries</h2>
-      <p>
-        Redemption Ministries in Warri is more than a church—we are a family of believers walking in our identity as "The Church of the Firstborn." Rooted in the truth of Hebrews 12:23, we believe every redeemed believer carries the inheritance rights, authority, and intimacy of the firstborn. Through dynamic worship, biblical teaching, and authentic community, we pursue the full redemption of lives, families, and our city. Whether you're seeking God for the first time or growing deeper in faith, you have a place here where your spiritual inheritance is awakened.
-      </p>
-      <p>
-        Our services are marked by heartfelt worship, sound biblical teaching, prayer,
-        and the tangible presence of God. We are a family built on faith, love, and truth.
-      </p>
+      <div class="scripture-badge"><i class="fas fa-bible"></i> Hebrews 12:23 — The Church of the Firstborn</div>
     </div>
   </section>
+</header>
 
-  <!-- Vision & Mission -->
-  <section id="vision" class="section light fade-in">
-    <div class="container two-cols">
-      <div>
-        <h3>Our Vision</h3>
-        <p>To raise a redeemed generation that reflects Christ in character, authority, and purpose.</p>
+<main>
+  <!-- SALvation Steps: Believe, Repent, Confession -->
+  <section id="salvation" class="section container">
+    <h2 class="section-title">The Path to Redemption</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <h3><i class="fas fa-cross"></i> Believe</h3>
+        <p>“Believe on the Lord Jesus Christ, and thou shalt be saved.” — Acts 16:31</p>
+        <p class="scripture">Salvation begins with faith. Trust in His finished work on the Cross.</p>
       </div>
-      <div>
-        <h3>Our Mission</h3>
-        <ul>
-          <li>To preach the undiluted Word of God</li>
-          <li>To disciple believers into spiritual maturity</li>
-          <li>To restore lives through faith and truth</li>
-          <li>To impact communities with the love of Christ</li>
-        </ul>
+      <div class="step-card">
+        <h3><i class="fas fa-heart"></i> Repent</h3>
+        <p>“Repent therefore, and be converted, that your sins may be blotted out.” — Acts 3:19</p>
+        <p class="scripture">Turn away from sin, turn toward God. A changed heart produces new life.</p>
+      </div>
+      <div class="step-card">
+        <h3><i class="fas fa-microphone-alt"></i> Confession</h3>
+        <p>“If you confess with your mouth the Lord Jesus... you shall be saved.” — Romans 10:9–10</p>
+        <p class="scripture">Openly declare Jesus as your Lord and become a new creation.</p>
       </div>
     </div>
   </section>
 
-  <!-- Weekly Activities -->
-  <section id="activities" class="section fade-up">
-    <div class="container">
-      <h2>Weekly Activities</h2>
-
-      <div class="card-grid">
-
-        <div class="card">
-          <h3>Wednesday – Bible Study</h3>
-          <p>Time: 5:00 PM<br>
-          A deep teaching of the Word designed to build strong believers.</p>
-        </div>
-
-        <div class="card">
-          <h3>Wednesday – Divine Daughters of Destiny Power Clinic</h3>
-          <p>Time: 9:00 PM<br>
-          A special prayer meeting for women focused on destiny, empowerment, and spiritual growth.</p>
-        </div>
-
-        <div class="card">
-          <h3>Friday – Covenant of Life Service</h3>
-          <p>Time: 5:00 PM<br>
-          A powerful service focused on prayer, faith, and covenant blessings.</p>
-        </div>
-
-        <div class="card">
-          <h3>Dominion Night</h3>
-          <p>Every 3rd Friday of the Month<br>
-          A night of intense worship, prayer, and spiritual warfare.</p>
-        </div>
-
-        <div class="card">
-          <h3>Hear My Cry, O Lord</h3>
-          <p>Last Day & First Two Days of Every Month<br>
-          A season of fervent prayers, supplication, and divine encounter.</p>
-        </div>
-
-        <div class="card">
-          <h3>Youth Service</h3>
-          <p>First & Third Sunday of the Month<br>
-          Empowering youths with the Word, worship, and purpose-driven teachings.</p>
-        </div>
-
+  <!-- Foundational Pillars of Faith -->
+  <section id="pillars" class="section container">
+    <h2 class="section-title">Foundational Pillars of Faith</h2>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <h3><i class="fas fa-book-open"></i> Knowing the Word</h3>
+        <p>“If ye abide in me, and my words abide in you...” — John 15:7</p>
+        <p>The Word of God is the foundation for answered prayer and victorious living.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><i class="fas fa-pray"></i> Persistent Prayer</h3>
+        <p>“Pray without ceasing.” — 1 Thessalonians 5:17</p>
+        <p>Dominion Night, Hear My Cry — lives are transformed through prayer.</p>
+      </div>
+      <div class="pillar-card">
+        <h3><i class="fas fa-hand-holding-heart"></i> Faith & Obedience</h3>
+        <p>Faith without works is dead. Walking in obedience unlocks God’s promises.</p>
       </div>
     </div>
   </section>
 
-  <!-- Beliefs & Why Worship With Us -->
-  <section id="beliefs-why-us" class="section light fade-in">
-    <div class="container">
-
-      <h2>Our Beliefs</h2>
-      <p>We believe in the Holy Bible as the inspired and infallible Word of God.</p>
-      <p>We believe in the Holy Trinity and in the redemptive work of Jesus Christ.</p>
-      <p>We believe in salvation through faith in Jesus Christ and the power of the Holy Spirit.</p>
-      <p>We believe in the power of prayer, faith, and obedience to God’s Word.</p>
-
-      <h2 style="margin-top:40px;">Why Worship With Us</h2>
-      <p>We are committed to raising people grounded in the Word of God and empowered by the Holy Spirit.</p>
-      <p>Our services are Bible-based, Spirit-led, and focused on salvation, holiness, and purposeful living.</p>
-      <p>We offer a warm, loving, family-oriented environment where everyone is welcomed, nurtured, and encouraged to grow in faith.</p>
-      <p>Through sound teaching, heartfelt worship, and fervent prayers, lives are transformed, hope is restored, and destinies are fulfilled.</p>
-
+  <!-- Major Teachings + Blog excerpts from official -->
+  <section id="teachings" class="section container">
+    <h2 class="section-title">Major Teachings & Blog</h2>
+    <div class="teachings-grid">
+      <div class="teaching-card">
+        <i class="fas fa-chalkboard-user" style="font-size: 2rem; color: var(--gold-primary);"></i>
+        <h3 style="margin: 0.8rem 0;">Sermons & Logos Hour</h3>
+        <p>Messages that build faith, plus in-depth Bible Study teachings.</p>
+      </div>
+      <div class="teaching-card">
+        <i class="fas fa-feather-alt" style="font-size: 2rem; color: var(--gold-primary);"></i>
+        <h3 style="margin: 0.8rem 0;">Character & Charisma</h3>
+        <p>“Prisoners of Character” — defining instruments for a spirit-led life.</p>
+      </div>
+      <div class="teaching-card">
+        <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i>
+        <h3 style="margin: 0.8rem 0;">Timeless Godly Principles</h3>
+        <p>Exceed expectations by following biblical patterns of faith and diligence.</p>
+      </div>
+    </div>
+    <div class="blog-excerpt">
+      <div class="blog-title">📖 Timeless Godly Principles To Exceed Expectations</div>
+      <p>Beloved, God expects you to live above limitation. Scripture shows clear patterns for a life that exceeds expectations. When you follow these principles, your results change. Never limit the Almighty...</p>
+      <a href="#" class="read-more">Read full article →</a>
     </div>
   </section>
 
-  <!-- Contact -->
-<section id="contact" class="section contact-section fade-up">
-  <div class="container contact-container">
-    <h2>Contact Us</h2>
-    <p class="contact-intro">Reach out for prayers, partnership, or inquiries.</p>
-
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>📍 Location</h3>
-        <p>3RD MARINE GATE, BY WALTER ODILI JUNCTION, WARRI.</p>
-      </div>
-      <div class="contact-card">
-        <h3>📞 Phone</h3>
-        <p>
-          <a href="tel:08034226197">08034226197</a><br>
-          <a href="tel:08062658746">08062658746</a>
-        </p>
-      </div>
-      <div class="contact-card">
-        <h3>📧 Email</h3>
-        <p><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></p>
-      </div>
+  <!-- Testimonies Carousel (from official content) -->
+  <section id="testimonies" class="section container">
+    <h2 class="section-title">God’s Promises Are True — Testimonies</h2>
+    <div class="testimonials-slider">
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I entered last year's crossover service with high expectations but no idea how they would be fulfilled. To God’s glory, I experienced incredible breakthroughs and favor throughout the year.”</p><p class="testimonial-name">— I. E. Kayii</p></div>
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I had difficulty in breathing some days ago, but today God has healed me; to God be all the glory.”</p><p class="testimonial-name">— Inaasi Karmille Leere</p></div>
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I want to return all the glory to God who healed my son; he fainted in school but after prayers and medical care, he was fully discharged.”</p><p class="testimonial-name">— Dr. (Mrs) Salome Douglas</p></div>
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“Crossover service changed my story! God's favor located me and my business turned around.”</p><p class="testimonial-name">— Faith O.</p></div>
     </div>
+  </section>
+
+  <!-- Connect With Us & Footer info + Newsletter -->
+  <section id="connect" class="section container">
+    <h2 class="section-title">Connect With Us</h2>
+    <div class="connect-grid">
+      <div class="connect-card"><i class="fas fa-church"></i> <strong>International Headquarters</strong><br>Omega Beach, Eastern By-Pass, Port Harcourt, Nigeria.<br>Branches worldwide.</div>
+      <div class="connect-card"><i class="fas fa-phone-alt"></i> <strong>Call/WhatsApp</strong><br>+234903222664<br>+234 916 462 4021</div>
+      <div class="connect-card"><i class="fas fa-globe"></i> <strong>Online Services</strong><br>Join us live on YouTube & Facebook</div>
+    </div>
+    <div class="connect-card" style="margin-top: 1.5rem; text-align: center;">
+      <h3><i class="fas fa-envelope"></i> Newsletter</h3>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" placeholder="Enter your email for updates & prayer points" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="scripture" style="margin-top: 0.8rem;">“I will bless you and make you a blessing.” — Genesis 12:2</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#salvation">Salvation</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#testimonies">Testimonies</a>
+    </div>
+    <p style="margin: 1.2rem 0;">© 2025 Redemption Ministries Worldwide — The Church of the Firstborn. Raising a redeemed generation.</p>
+    <p><i class="fas fa-heart" style="color: var(--gold-primary);"></i> “Believe. Repent. Confess. Be transformed.”</p>
   </div>
-</section>
+</footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>Redemption Ministries</h4>
-        <p>The Church of the Firstborn</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#activities">Activities</a></li>
-          <li><a href="#beliefs-why-us">Beliefs & Why Worship</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navMenu = document.getElementById('navMenu');
+  menuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
 
-    <p class="footer-bottom">
-      © <span id="year"></span> Redemption Ministries. All Rights Reserved.
-    </p>
-  </footer>
+  // Floating dust particles for heavenly atmosphere
+  function createDust() {
+    const dustContainer = document.getElementById('dustContainer');
+    for (let i = 0; i < 60; i++) {
+      let dust = document.createElement('div');
+      dust.classList.add('dust');
+      let size = Math.random() * 5 + 2;
+      dust.style.width = size + 'px';
+      dust.style.height = size + 'px';
+      dust.style.left = Math.random() * 100 + '%';
+      dust.style.top = Math.random() * 100 + '%';
+      dust.style.animationDuration = Math.random() * 15 + 8 + 's';
+      dust.style.animationDelay = Math.random() * 10 + 's';
+      dustContainer.appendChild(dust);
+    }
+  }
+  createDust();
 
-  <script src="script.js"></script>
+  // Newsletter simple alert
+  document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert("🙏 Thank you! You're now subscribed to divine updates. Stay blessed.");
+    e.target.reset();
+  });
+  
+  // smooth scroll for internal anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetElem = document.querySelector(targetId);
+      if (targetElem) {
+        e.preventDefault();
+        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
+      }
+    });
+  });
+  
+  // Intersection Observer for fade-up effect
+  const fadeElements = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.style.opacity = '1';
+      else entry.target.style.opacity = '0.7';
+    });
+  }, { threshold: 0.2 });
+  fadeElements.forEach(el => observer.observe(el));
+  fadeElements.forEach(el => el.style.transition = 'opacity 0.6s ease');
+</script>
 </body>
-            </html>
+</html>

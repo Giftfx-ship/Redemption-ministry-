@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Redemption Ministries Worldwide | The Church of the Firstborn</title>
-  <meta name="description" content="Redemption Ministries Worldwide — Raising a redeemed generation through God's Word. Experience salvation, testimonies, and life-changing teachings. Join us in Port Harcourt or online.">
-
-  <!-- Font Awesome 6, Google Fonts -->
+  <meta name="description" content="Redemption Ministries Worldwide — Raising a redeemed generation. Experience salvation, healing, and the power of God's Word. Join us in Port Harcourt or online.">
+  
+  <!-- Font Awesome 6 + Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
     * {
@@ -18,56 +18,96 @@
     }
 
     :root {
-      --bg-dark: #0a0c17;
-      --bg-surface: rgba(15, 18, 35, 0.88);
+      --bg-deep: #05070f;
+      --bg-card: rgba(8, 12, 25, 0.78);
       --gold-primary: #D4AF37;
       --gold-light: #F5D76E;
-      --gold-dim: rgba(212, 175, 55, 0.2);
-      --crimson: #9b1d2c;
-      --text-light: #fdfbf7;
-      --text-muted: #c9c6b5;
-      --shadow-gold: 0 12px 40px rgba(212, 175, 55, 0.2);
+      --gold-dim: rgba(212, 175, 55, 0.28);
+      --royal-red: #8B1E2A;
+      --royal-glow: rgba(139, 30, 42, 0.4);
+      --text-light: #FDFBF7;
+      --text-muted: #CBC6B5;
+      --shadow-gold: 0 25px 50px rgba(212, 175, 55, 0.2);
       --gradient-gold: linear-gradient(135deg, #D4AF37, #F5D76E, #C5A028);
-      --gradient-hero: linear-gradient(135deg, rgba(10,12,23,0.92), rgba(100,30,40,0.7));
-      --transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      --gradient-royal: linear-gradient(135deg, #8B1E2A, #B22234);
+      --transition: all 0.6s cubic-bezier(0.2, 0.95, 0.4, 1.1);
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-dark);
+      background: var(--bg-deep);
       color: var(--text-light);
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
-    /* Divine atmospheric background */
-    .glory-bg {
+    /* ----- PRELOADER (MAJESTIC CROSS + GLOW) ----- */
+    .preloader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -2;
-      background: radial-gradient(circle at 20% 30%, rgba(212,175,55,0.12) 0%, rgba(0,0,0,0) 55%),
-                  radial-gradient(circle at 85% 70%, rgba(155,29,44,0.2) 0%, transparent 60%);
+      background: radial-gradient(ellipse at center, #0a0e1a 0%, #020410 100%);
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1.8rem;
+      transition: opacity 1.2s ease, visibility 0.2s;
+      backdrop-filter: blur(4px);
     }
+    .preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .preloader .glowing-cross {
+      font-size: 5rem;
+      color: var(--gold-primary);
+      text-shadow: 0 0 20px #D4AF37, 0 0 40px rgba(212,175,55,0.6);
+      animation: crossPulse 1.2s infinite alternate;
+    }
+    @keyframes crossPulse {
+      0% { transform: scale(0.95); text-shadow: 0 0 10px #D4AF37; }
+      100% { transform: scale(1.15); text-shadow: 0 0 35px #F5D76E, 0 0 20px #D4AF37; }
+    }
+    .preloader .loader-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      letter-spacing: 6px;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 600;
+    }
+    .preloader .verse {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--gold-dim);
+      padding-top: 0.8rem;
+    }
+    .preloader .progress-ring {
+      width: 60px;
+      height: 60px;
+      border: 3px solid var(--gold-dim);
+      border-top: 3px solid var(--gold-primary);
+      border-radius: 50%;
+      animation: spinRing 1s linear infinite;
+    }
+    @keyframes spinRing { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    .floating-dust {
+    /* Canvas Background */
+    #bg-canvas {
       position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
       pointer-events: none;
-    }
-    .dust {
-      position: absolute;
-      background: radial-gradient(circle, rgba(212,175,55,0.3), transparent);
-      border-radius: 50%;
-      animation: floatDust 12s infinite alternate ease-in-out;
-    }
-    @keyframes floatDust {
-      0% { transform: translate(0,0) scale(1); opacity: 0.2; }
-      100% { transform: translate(30px, -40px) scale(1.3); opacity: 0.6; }
+      opacity: 0.7;
     }
 
     .container {
@@ -76,18 +116,19 @@
       padding: 0 2rem;
     }
 
-    /* Header / Nav */
+    /* Glassmorphic Premium Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      padding: 1.2rem 2rem;
-      background: rgba(8, 10, 22, 0.7);
-      backdrop-filter: blur(14px);
+      padding: 1rem 2rem;
+      background: rgba(5, 8, 20, 0.85);
+      backdrop-filter: blur(16px);
       border-radius: 3rem;
       margin: 1.5rem 2rem;
-      border: 1px solid var(--gold-dim);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
       position: relative;
       z-index: 100;
     }
@@ -97,242 +138,193 @@
       gap: 1rem;
     }
     .logo-icon {
-      width: 52px;
-      height: 52px;
+      width: 55px;
+      height: 55px;
       background: var(--gradient-gold);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
-      color: #0a0c17;
-      font-weight: bold;
-      box-shadow: 0 0 16px rgba(212,175,55,0.6);
-    }
-    .logo-area h1 {
-      font-size: 1.6rem;
-      font-family: 'Cormorant Garamond', serif;
-      letter-spacing: -0.5px;
-    }
-    .tagline {
-      font-size: 0.7rem;
-      opacity: 0.8;
-    }
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-menu a {
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: 500;
-      transition: 0.2s;
-    }
-    .nav-menu a:hover { color: var(--gold-primary); }
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
       font-size: 1.8rem;
-      color: var(--gold-primary);
-      cursor: pointer;
+      color: #05070f;
+      box-shadow: 0 0 25px rgba(212,175,55,0.5);
+      animation: softGlow 3s infinite;
     }
-    @media (max-width: 900px) {
-      .nav-menu { display: none; width: 100%; flex-direction: column; text-align: center; padding: 1.5rem 0; gap: 1rem; }
-      .nav-menu.active { display: flex; }
-      .menu-btn { display: block; }
-      .navbar { flex-wrap: wrap; }
+    @keyframes softGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(212,175,55,0.4); }
+      50% { box-shadow: 0 0 35px rgba(212,175,55,0.8); }
     }
+    .logo-area h1 { font-size: 1.7rem; font-family: 'Cormorant Garamond', serif; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .tagline { font-size: 0.7rem; opacity: 0.8; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; transition: 0.3s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gradient-gold); transition: width 0.3s; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .burger { display: none; background: none; border: none; font-size: 2rem; color: var(--gold-primary); cursor: pointer; }
+    @media (max-width: 950px) { .nav-links { display: none; } .burger { display: block; } .navbar { flex-wrap: wrap; } }
 
-    /* Hero Section */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    /* Hero */
+    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 3rem; padding: 3rem 2rem; }
+    .hero-content { flex: 1.2; }
+    .hero-content h1 { font-size: 4.6rem; font-family: 'Cormorant Garamond', serif; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; line-height: 1.2; }
+    .hero-sub { font-size: 1.2rem; margin: 1.2rem 0; opacity: 0.9; line-height: 1.6; }
+    .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 2rem 0; }
+    .btn { padding: 0.9rem 2.2rem; border-radius: 60px; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-primary { background: var(--gradient-gold); color: #05070f; box-shadow: 0 8px 20px rgba(212,175,55,0.3); }
+    .btn-outline { border: 1.5px solid var(--gold-primary); color: var(--gold-primary); background: transparent; backdrop-filter: blur(4px); }
+    .btn-primary:hover, .btn-outline:hover { transform: translateY(-5px); filter: brightness(1.08); box-shadow: 0 15px 30px rgba(212,175,55,0.25); }
+    .hero-clock { flex: 0.8; min-width: 280px; background: rgba(8, 12, 25, 0.7); backdrop-filter: blur(16px); border-radius: 2rem; padding: 1.8rem; text-align: center; border: 1px solid var(--gold-dim); box-shadow: var(--shadow-gold); }
+    .clock-display { font-size: 2.4rem; font-weight: 800; font-family: monospace; margin: 0.8rem 0; color: var(--gold-light); letter-spacing: 2px; }
+
+    /* Sections */
+    .section { padding: 5rem 0; margin: 2.5rem 0; border-radius: 2rem; background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid var(--gold-dim); transition: var(--transition); }
+    .section-title { font-size: 2.8rem; font-family: 'Cormorant Garamond', serif; border-left: 6px solid var(--gold-primary); padding-left: 1.5rem; margin-bottom: 2.5rem; font-weight: 700; }
+    .steps-grid, .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .step-card, .pillar-card, .teaching-card, .testimonial-card { background: rgba(0, 0, 0, 0.5); border-radius: 1.8rem; padding: 2rem; transition: all 0.4s; border-bottom: 3px solid var(--gold-dim); backdrop-filter: blur(4px); }
+    .step-card:hover, .pillar-card:hover, .teaching-card:hover, .testimonial-card:hover { transform: translateY(-8px); border-bottom-color: var(--gold-primary); box-shadow: var(--shadow-gold); background: rgba(0, 0, 0, 0.65); }
+    .scripture { font-style: italic; margin-top: 1rem; font-size: 0.9rem; color: var(--gold-light); }
+    .testimonials-slider { display: flex; overflow-x: auto; gap: 2rem; padding: 1rem 0.5rem; scroll-snap-type: x mandatory; }
+    .testimonial-card { min-width: 330px; scroll-snap-align: start; }
+
+    /* ===== DOPER CONTACT SECTION - NEXT LEVEL UI ===== */
+    .contact-mega {
+      background: linear-gradient(145deg, rgba(6, 9, 18, 0.9), rgba(2, 4, 12, 0.95));
+      backdrop-filter: blur(20px);
       position: relative;
-      padding: 4rem 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.4);
     }
-    .hero-content h1 {
-      font-size: 4rem;
-      font-family: 'Cormorant Garamond', serif;
+    .contact-mega::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      top: -25%;
+      left: -25%;
+      background: radial-gradient(circle, rgba(212,175,55,0.12), transparent 70%);
+      animation: slowDrift 35s infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes slowDrift {
+      0% { transform: translate(-5%, -5%) rotate(0deg); }
+      100% { transform: translate(5%, 5%) rotate(5deg); }
+    }
+    .contact-grid-premium {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .contact-card-gold {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 2rem;
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      transition: all 0.4s;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(8px);
+      position: relative;
+      z-index: 2;
+    }
+    .contact-card-gold:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--gold-primary);
+      box-shadow: 0 35px 50px rgba(212, 175, 55, 0.25);
+      background: rgba(0, 0, 0, 0.75);
+    }
+    .contact-icon-gold {
+      font-size: 3rem;
       background: var(--gradient-gold);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
     }
-    .hero-sub {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 1.2rem auto;
-      opacity: 0.9;
+    .contact-card-gold h3 {
+      font-size: 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 1rem;
+      color: var(--gold-light);
     }
-    .btn-group {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 2rem 0;
-    }
-    .btn {
-      padding: 0.85rem 2rem;
-      border-radius: 60px;
-      font-weight: 600;
+    .contact-card-gold p, .contact-card-gold a {
+      color: var(--text-muted);
       text-decoration: none;
+      line-height: 1.6;
+    }
+    .contact-card-gold a:hover { color: var(--gold-primary); }
+    .social-icons-float {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      margin-top: 1.2rem;
+    }
+    .social-icons-float a {
+      font-size: 1.8rem;
       transition: 0.2s;
     }
-    .btn-primary {
-      background: var(--gradient-gold);
-      color: #0a0c17;
-      border: none;
-      box-shadow: 0 6px 18px rgba(212,175,55,0.3);
-    }
-    .btn-outline {
-      border: 1.5px solid var(--gold-primary);
-      background: transparent;
-      color: var(--gold-primary);
-    }
-    .btn:hover {
-      transform: translateY(-4px);
-      filter: brightness(1.05);
-    }
-    .scripture-badge {
-      background: rgba(0,0,0,0.4);
-      display: inline-block;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    /* Sections general */
-    .section {
-      padding: 5rem 0;
-      margin: 2rem 0;
+    .social-icons-float a:hover { transform: scale(1.2); color: var(--gold-primary); }
+    .newsletter-premium {
+      background: linear-gradient(125deg, rgba(0,0,0,0.7), rgba(139,30,42,0.25));
       border-radius: 2rem;
-      background: var(--bg-surface);
-      backdrop-filter: blur(6px);
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
       border: 1px solid var(--gold-dim);
     }
-    .section-title {
-      font-size: 2.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      border-left: 6px solid var(--gold-primary);
-      padding-left: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .steps-grid, .pillars-grid, .teachings-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .step-card, .pillar-card, .teaching-card {
-      background: rgba(0,0,0,0.45);
-      border-radius: 1.5rem;
-      padding: 2rem;
-      transition: var(--transition);
-      border-bottom: 3px solid var(--gold-dim);
-    }
-    .step-card:hover, .pillar-card:hover, .testimonial-card:hover {
-      transform: translateY(-8px);
-      border-bottom-color: var(--gold-primary);
-      box-shadow: var(--shadow-gold);
-    }
-    .step-card h3 i, .pillar-card h3 i { color: var(--gold-primary); margin-right: 10px; }
-    .scripture { font-style: italic; margin-top: 1rem; font-size: 0.9rem; color: var(--gold-light); }
-
-    /* Testimonials carousel style */
-    .testimonials-slider {
+    .newsletter-premium:hover { border-color: var(--gold-primary); box-shadow: var(--shadow-gold); }
+    .newsletter-flex {
       display: flex;
-      overflow-x: auto;
-      gap: 2rem;
-      padding: 1rem 0.5rem;
-      scroll-snap-type: x mandatory;
-    }
-    .testimonial-card {
-      min-width: 300px;
-      background: rgba(0,0,0,0.5);
-      border-radius: 1.5rem;
-      padding: 1.8rem;
-      scroll-snap-align: start;
-      flex: 0 0 auto;
-    }
-    .testimonial-card i.fa-quote-left { color: var(--gold-primary); font-size: 1.8rem; opacity: 0.6; margin-bottom: 0.8rem; }
-    .testimonial-name { margin-top: 1rem; font-weight: 600; color: var(--gold-light); }
-
-    /* Pillars & blog excerpts */
-    .pillars-grid .pillar-card p { margin-top: 0.8rem; font-size: 0.95rem; }
-    .blog-excerpt {
-      margin-top: 2rem;
-      background: rgba(0,0,0,0.3);
-      border-radius: 1.2rem;
-      padding: 1.5rem;
-    }
-    .blog-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .read-more { color: var(--gold-primary); text-decoration: none; font-weight: 500; }
-
-    /* Connect + Footer */
-    .connect-grid {
-      display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
+      margin-top: 1.2rem;
     }
-    .connect-card {
-      background: rgba(0,0,0,0.4);
-      padding: 1.5rem;
-      border-radius: 1.5rem;
-      flex: 1;
-      min-width: 200px;
+    .newsletter-flex input {
+      flex: 2;
+      min-width: 240px;
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--gold-dim);
+      color: white;
+      font-size: 1rem;
     }
+    .newsletter-flex button {
+      background: var(--gradient-gold);
+      border: none;
+      padding: 0 2rem;
+      border-radius: 60px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #05070f;
+      transition: 0.2s;
+    }
+    .newsletter-flex button:hover { transform: scale(1.02); filter: brightness(1.05); }
+
     footer {
-      background: #050714;
+      background: #030617;
       padding: 2.5rem 0;
       margin-top: 3rem;
       text-align: center;
+      border-top: 1px solid var(--gold-dim);
     }
-    .footer-links a {
-      color: var(--text-muted);
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-    .newsletter-form {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-    .newsletter-form input {
-      flex: 2;
-      padding: 0.8rem;
-      border-radius: 3rem;
-      border: none;
-      background: rgba(255,255,255,0.1);
-      color: white;
-    }
-    .newsletter-form button {
-      background: var(--gold-primary);
-      border: none;
-      padding: 0 1.5rem;
-      border-radius: 3rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2.5rem; }
-      .section-title { font-size: 1.8rem; }
-      .container { padding: 0 1rem; }
-    }
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) { .hero-content h1 { font-size: 2.6rem; } .section-title { font-size: 2rem; } }
   </style>
 </head>
 <body>
-<div class="glory-bg"></div>
-<div class="floating-dust" id="dustContainer"></div>
+
+<!-- PRELOADER ANIMATION (MAJESTIC) -->
+<div class="preloader" id="preloader">
+  <div class="glowing-cross"><i class="fas fa-cross"></i></div>
+  <div class="loader-text">REDEMPTION MINISTRIES</div>
+  <div class="progress-ring"></div>
+  <div class="verse">"The Church of the Firstborn" — Hebrews 12:23</div>
+</div>
+
+<canvas id="bg-canvas"></canvas>
 
 <header>
   <nav class="navbar">
@@ -340,8 +332,8 @@
       <div class="logo-icon"><i class="fas fa-dove"></i></div>
       <div><h1>Redemption Ministries</h1><p class="tagline">The Church of the Firstborn • Worldwide</p></div>
     </div>
-    <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
-    <ul class="nav-menu" id="navMenu">
+    <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#salvation">Salvation</a></li>
       <li><a href="#pillars">Pillars</a></li>
@@ -351,188 +343,188 @@
     </ul>
   </nav>
 
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Stop and pray.<br>Prayer Changes things.</h1>
-      <p class="hero-sub">You too can be Part Of God's Promises — A redeemed generation walking in firstborn authority.</p>
+  <section id="home" class="hero container">
+    <div class="hero-content reveal">
+      <h1>Stop and pray.<br>Prayer Changes everything.</h1>
+      <p class="hero-sub">You too can be Part Of God's Promises — A redeemed generation walking in firstborn authority. Join thousands experiencing revival.</p>
       <div class="btn-group">
-        <a href="#salvation" class="btn btn-primary">Believe & Be Saved</a>
-        <a href="#testimonies" class="btn btn-outline">See Testimonies</a>
+        <a href="#salvation" class="btn btn-primary"><i class="fas fa-heart"></i> Believe & Be Saved</a>
+        <a href="#testimonies" class="btn btn-outline"><i class="fas fa-fire"></i> See Testimonies</a>
       </div>
-      <div class="scripture-badge"><i class="fas fa-bible"></i> Hebrews 12:23 — The Church of the Firstborn</div>
+      <div class="scripture"><i class="fas fa-bible"></i> Hebrews 12:23 — The Church of the Firstborn</div>
+    </div>
+    <div class="hero-clock reveal">
+      <h3><i class="fas fa-hourglass-half"></i> Next Service Countdown</h3>
+      <div id="clock" class="clock-display">--:--:--</div>
+      <div id="date" style="font-size: 0.9rem;"></div>
     </div>
   </section>
 </header>
 
 <main>
-  <!-- SALvation Steps: Believe, Repent, Confession -->
-  <section id="salvation" class="section container">
+  <section id="salvation" class="section container reveal">
     <h2 class="section-title">The Path to Redemption</h2>
     <div class="steps-grid">
-      <div class="step-card">
-        <h3><i class="fas fa-cross"></i> Believe</h3>
-        <p>“Believe on the Lord Jesus Christ, and thou shalt be saved.” — Acts 16:31</p>
-        <p class="scripture">Salvation begins with faith. Trust in His finished work on the Cross.</p>
-      </div>
-      <div class="step-card">
-        <h3><i class="fas fa-heart"></i> Repent</h3>
-        <p>“Repent therefore, and be converted, that your sins may be blotted out.” — Acts 3:19</p>
-        <p class="scripture">Turn away from sin, turn toward God. A changed heart produces new life.</p>
-      </div>
-      <div class="step-card">
-        <h3><i class="fas fa-microphone-alt"></i> Confession</h3>
-        <p>“If you confess with your mouth the Lord Jesus... you shall be saved.” — Romans 10:9–10</p>
-        <p class="scripture">Openly declare Jesus as your Lord and become a new creation.</p>
-      </div>
+      <div class="step-card"><h3><i class="fas fa-cross"></i> Believe</h3><p>“Believe on the Lord Jesus Christ, and thou shalt be saved.” — Acts 16:31</p><p class="scripture">Salvation begins with faith. Trust in His finished work on the Cross.</p></div>
+      <div class="step-card"><h3><i class="fas fa-heart"></i> Repent</h3><p>“Repent therefore, and be converted, that your sins may be blotted out.” — Acts 3:19</p><p class="scripture">Turn away from sin, turn toward God. A changed heart produces new life.</p></div>
+      <div class="step-card"><h3><i class="fas fa-microphone-alt"></i> Confession</h3><p>“If you confess with your mouth the Lord Jesus... you shall be saved.” — Romans 10:9–10</p><p class="scripture">Openly declare Jesus as your Lord and become a new creation.</p></div>
     </div>
   </section>
 
-  <!-- Foundational Pillars of Faith -->
-  <section id="pillars" class="section container">
+  <section id="pillars" class="section container reveal">
     <h2 class="section-title">Foundational Pillars of Faith</h2>
     <div class="pillars-grid">
-      <div class="pillar-card">
-        <h3><i class="fas fa-book-open"></i> Knowing the Word</h3>
-        <p>“If ye abide in me, and my words abide in you...” — John 15:7</p>
-        <p>The Word of God is the foundation for answered prayer and victorious living.</p>
-      </div>
-      <div class="pillar-card">
-        <h3><i class="fas fa-pray"></i> Persistent Prayer</h3>
-        <p>“Pray without ceasing.” — 1 Thessalonians 5:17</p>
-        <p>Dominion Night, Hear My Cry — lives are transformed through prayer.</p>
-      </div>
-      <div class="pillar-card">
-        <h3><i class="fas fa-hand-holding-heart"></i> Faith & Obedience</h3>
-        <p>Faith without works is dead. Walking in obedience unlocks God’s promises.</p>
-      </div>
+      <div class="pillar-card"><h3><i class="fas fa-book-open"></i> Knowing the Word</h3><p>“If ye abide in me, and my words abide in you...” — John 15:7</p><p>The Word of God is the foundation for answered prayer and victorious living.</p></div>
+      <div class="pillar-card"><h3><i class="fas fa-pray"></i> Persistent Prayer</h3><p>“Pray without ceasing.” — 1 Thessalonians 5:17</p><p>Dominion Night, Hear My Cry — lives are transformed through prayer.</p></div>
+      <div class="pillar-card"><h3><i class="fas fa-hand-holding-heart"></i> Faith & Obedience</h3><p>Faith without works is dead. Walking in obedience unlocks God's promises.</p></div>
     </div>
   </section>
 
-  <!-- Major Teachings + Blog excerpts from official -->
-  <section id="teachings" class="section container">
+  <section id="teachings" class="section container reveal">
     <h2 class="section-title">Major Teachings & Blog</h2>
-    <div class="teachings-grid">
-      <div class="teaching-card">
-        <i class="fas fa-chalkboard-user" style="font-size: 2rem; color: var(--gold-primary);"></i>
-        <h3 style="margin: 0.8rem 0;">Sermons & Logos Hour</h3>
-        <p>Messages that build faith, plus in-depth Bible Study teachings.</p>
-      </div>
-      <div class="teaching-card">
-        <i class="fas fa-feather-alt" style="font-size: 2rem; color: var(--gold-primary);"></i>
-        <h3 style="margin: 0.8rem 0;">Character & Charisma</h3>
-        <p>“Prisoners of Character” — defining instruments for a spirit-led life.</p>
-      </div>
-      <div class="teaching-card">
-        <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--gold-primary);"></i>
-        <h3 style="margin: 0.8rem 0;">Timeless Godly Principles</h3>
-        <p>Exceed expectations by following biblical patterns of faith and diligence.</p>
-      </div>
+    <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px,1fr));">
+      <div class="teaching-card"><i class="fas fa-chalkboard-user" style="font-size:2rem;color:var(--gold-primary);"></i><h3 style="margin:0.8rem 0;">Sermons & Logos Hour</h3><p>Messages that build faith, plus in-depth Bible Study teachings.</p></div>
+      <div class="teaching-card"><i class="fas fa-feather-alt" style="font-size:2rem;color:var(--gold-primary);"></i><h3 style="margin:0.8rem 0;">Character & Charisma</h3><p>“Prisoners of Character” — defining instruments for a spirit-led life.</p></div>
+      <div class="teaching-card"><i class="fas fa-chart-line" style="font-size:2rem;color:var(--gold-primary);"></i><h3 style="margin:0.8rem 0;">Timeless Godly Principles</h3><p>Exceed expectations by following biblical patterns of faith.</p></div>
     </div>
-    <div class="blog-excerpt">
-      <div class="blog-title">📖 Timeless Godly Principles To Exceed Expectations</div>
-      <p>Beloved, God expects you to live above limitation. Scripture shows clear patterns for a life that exceeds expectations. When you follow these principles, your results change. Never limit the Almighty...</p>
-      <a href="#" class="read-more">Read full article →</a>
-    </div>
+    <div class="step-card" style="margin-top: 2rem;"><div class="blog-title">📖 Timeless Godly Principles To Exceed Expectations</div><p>Beloved, God expects you to live above limitation. Scripture shows clear patterns for a life that exceeds expectations. Never limit the Almighty... <a href="#" style="color:var(--gold-primary);">Read more →</a></p></div>
   </section>
 
-  <!-- Testimonies Carousel (from official content) -->
-  <section id="testimonies" class="section container">
-    <h2 class="section-title">God’s Promises Are True — Testimonies</h2>
+  <section id="testimonies" class="section container reveal">
+    <h2 class="section-title">God's Promises Are True — Testimonies</h2>
     <div class="testimonials-slider">
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I entered last year's crossover service with high expectations but no idea how they would be fulfilled. To God’s glory, I experienced incredible breakthroughs and favor throughout the year.”</p><p class="testimonial-name">— I. E. Kayii</p></div>
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I had difficulty in breathing some days ago, but today God has healed me; to God be all the glory.”</p><p class="testimonial-name">— Inaasi Karmille Leere</p></div>
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I want to return all the glory to God who healed my son; he fainted in school but after prayers and medical care, he was fully discharged.”</p><p class="testimonial-name">— Dr. (Mrs) Salome Douglas</p></div>
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“Crossover service changed my story! God's favor located me and my business turned around.”</p><p class="testimonial-name">— Faith O.</p></div>
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I entered last year's crossover service with high expectations... I experienced incredible breakthroughs and favor throughout the year.”</p><p class="scripture">— I. E. Kayii</p></div>
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I had difficulty breathing some days ago, but today God has healed me; to God be all the glory.”</p><p class="scripture">— Inaasi Karmille Leere</p></div>
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“My son fainted in school... after prayers and faith, he was fully discharged. Glory to God!”</p><p class="scripture">— Dr. (Mrs) Salome Douglas</p></div>
+      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“Crossover service changed my story! God's favor located me and my business turned around.”</p><p class="scripture">— Faith O.</p></div>
     </div>
   </section>
 
-  <!-- Connect With Us & Footer info + Newsletter -->
-  <section id="connect" class="section container">
-    <h2 class="section-title">Connect With Us</h2>
-    <div class="connect-grid">
-      <div class="connect-card"><i class="fas fa-church"></i> <strong>International Headquarters</strong><br>Omega Beach, Eastern By-Pass, Port Harcourt, Nigeria.<br>Branches worldwide.</div>
-      <div class="connect-card"><i class="fas fa-phone-alt"></i> <strong>Call/WhatsApp</strong><br>+234903222664<br>+234 916 462 4021</div>
-      <div class="connect-card"><i class="fas fa-globe"></i> <strong>Online Services</strong><br>Join us live on YouTube & Facebook</div>
+  <!-- ========== DOPER CONTACT SECTION (PREMIUM UI) ========== -->
+  <section id="connect" class="section contact-mega container reveal">
+    <h2 class="section-title">Connect With The Movement</h2>
+    <div class="contact-grid-premium">
+      <div class="contact-card-gold">
+        <div class="contact-icon-gold"><i class="fas fa-church"></i></div>
+        <h3>International Headquarters</h3>
+        <p>Omega Beach, Eastern By-Pass,<br>Port Harcourt, Nigeria.<br><strong>Branches worldwide</strong></p>
+      </div>
+      <div class="contact-card-gold">
+        <div class="contact-icon-gold"><i class="fas fa-phone-alt"></i></div>
+        <h3>Call / WhatsApp</h3>
+        <p><a href="tel:+234903222664">+234 903 222 664</a><br><a href="tel:+2349164624021">+234 916 462 4021</a></p>
+        <div class="social-icons-float">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="contact-card-gold">
+        <div class="contact-icon-gold"><i class="fas fa-globe"></i></div>
+        <h3>Online Services</h3>
+        <p>Join us live on YouTube & Facebook<br>Sunday 8AM | Wednesday 5PM</p>
+        <div class="social-icons-float">
+          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+        </div>
+      </div>
     </div>
-    <div class="connect-card" style="margin-top: 1.5rem; text-align: center;">
-      <h3><i class="fas fa-envelope"></i> Newsletter</h3>
-      <form id="newsletterForm" class="newsletter-form">
-        <input type="email" placeholder="Enter your email for updates & prayer points" required>
-        <button type="submit">Subscribe</button>
+    <div class="newsletter-premium">
+      <h3><i class="fas fa-envelope-open-text"></i> Receive Divine Updates</h3>
+      <p>Enter your email to get prayer points, prophetic words and church news.</p>
+      <form id="newsletterForm" class="newsletter-flex">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe <i class="fas fa-arrow-right"></i></button>
       </form>
-      <p class="scripture" style="margin-top: 0.8rem;">“I will bless you and make you a blessing.” — Genesis 12:2</p>
+      <p class="scripture" style="margin-top: 1rem;">“I will bless you and make you a blessing.” — Genesis 12:2</p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="container">
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#salvation">Salvation</a>
-      <a href="#pillars">Pillars</a>
-      <a href="#testimonies">Testimonies</a>
+    <div class="footer-links" style="margin-bottom: 1rem;">
+      <a href="#home">Home</a> | <a href="#salvation">Salvation</a> | <a href="#pillars">Pillars</a> | <a href="#testimonies">Testimonies</a>
     </div>
-    <p style="margin: 1.2rem 0;">© 2025 Redemption Ministries Worldwide — The Church of the Firstborn. Raising a redeemed generation.</p>
+    <p>© <span id="year-footer">2025</span> Redemption Ministries Worldwide — The Church of the Firstborn. Raising a redeemed generation.</p>
     <p><i class="fas fa-heart" style="color: var(--gold-primary);"></i> “Believe. Repent. Confess. Be transformed.”</p>
   </div>
 </footer>
 
 <script>
-  // Mobile menu toggle
-  const menuBtn = document.getElementById('menuBtn');
-  const navMenu = document.getElementById('navMenu');
-  menuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+  (function(){
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        preloader.classList.add('hide');
+        setTimeout(() => preloader.style.display = 'none', 1100);
+      }, 2000);
+    });
 
-  // Floating dust particles for heavenly atmosphere
-  function createDust() {
-    const dustContainer = document.getElementById('dustContainer');
-    for (let i = 0; i < 60; i++) {
-      let dust = document.createElement('div');
-      dust.classList.add('dust');
-      let size = Math.random() * 5 + 2;
-      dust.style.width = size + 'px';
-      dust.style.height = size + 'px';
-      dust.style.left = Math.random() * 100 + '%';
-      dust.style.top = Math.random() * 100 + '%';
-      dust.style.animationDuration = Math.random() * 15 + 8 + 's';
-      dust.style.animationDelay = Math.random() * 10 + 's';
-      dustContainer.appendChild(dust);
+    // Live Clock & Date
+    function updateTime() {
+      const now = new Date();
+      const clockEl = document.getElementById('clock');
+      const dateEl = document.getElementById('date');
+      const yearSpan = document.getElementById('year-footer');
+      if(clockEl) clockEl.textContent = now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+      if(dateEl) dateEl.textContent = now.toLocaleDateString('en-GB', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+      if(yearSpan) yearSpan.textContent = now.getFullYear();
     }
-  }
-  createDust();
+    setInterval(updateTime, 1000);
+    updateTime();
 
-  // Newsletter simple alert
-  document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("🙏 Thank you! You're now subscribed to divine updates. Stay blessed.");
-    e.target.reset();
-  });
-  
-  // smooth scroll for internal anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElem = document.querySelector(targetId);
-      if (targetElem) {
-        e.preventDefault();
-        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
-      }
-    });
-  });
-  
-  // Intersection Observer for fade-up effect
-  const fadeElements = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.style.opacity = '1';
-      else entry.target.style.opacity = '0.7';
-    });
-  }, { threshold: 0.2 });
-  fadeElements.forEach(el => observer.observe(el));
-  fadeElements.forEach(el => el.style.transition = 'opacity 0.6s ease');
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const navLinks = document.querySelector('.nav-links');
+    if(burger) {
+      burger.addEventListener('click', () => {
+        if(navLinks.style.display === 'flex') navLinks.style.display = 'none';
+        else { navLinks.style.display = 'flex'; navLinks.style.flexDirection = 'column'; navLinks.style.position = 'absolute'; navLinks.style.top = '80px'; navLinks.style.right = '20px'; navLinks.style.background = 'rgba(5,8,20,0.95)'; navLinks.style.backdropFilter = 'blur(20px)'; navLinks.style.padding = '1.5rem 2rem'; navLinks.style.borderRadius = '20px'; navLinks.style.border = '1px solid var(--gold-dim)'; }
+      });
+    }
+
+    // Newsletter
+    document.getElementById('newsletterForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert("🙏 Thank you! You're now subscribed to divine updates. Stay blessed."); e.target.reset(); });
+
+    // Canvas Particle System (heavenly)
+    const canvas = document.getElementById('bg-canvas');
+    let ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for(let i=0;i<80;i++) {
+      particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: 2+Math.random()*5, vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4, hue: 190+Math.random()*70, life: Math.random()*1.5+0.5 });
+    }
+    function draw() {
+      if(!ctx) return;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if(p.x < -50) p.x = canvas.width+50; if(p.x > canvas.width+50) p.x = -50;
+        if(p.y < -50) p.y = canvas.height+50; if(p.y > canvas.height+50) p.y = -50;
+        p.life -= 0.002;
+        if(p.life <=0) { p.x = Math.random()*canvas.width; p.y = Math.random()*canvas.height; p.life = Math.random()*1.5+0.5; }
+        const grad = ctx.createRadialGradient(p.x,p.y,0, p.x,p.y, p.r*8);
+        grad.addColorStop(0, `hsla(${p.hue}, 90%, 65%, 0.8)`);
+        grad.addColorStop(0.5, `hsla(${p.hue}, 85%, 55%, 0.3)`);
+        grad.addColorStop(1, `hsla(${p.hue}, 85%, 55%, 0)`);
+        ctx.beginPath(); ctx.fillStyle = grad; ctx.arc(p.x, p.y, p.r*6, 0, Math.PI*2); ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
 </script>
 </body>
 </html>

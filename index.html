@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Redemption Ministries Worldwide | The Church of the Firstborn</title>
-  <meta name="description" content="Redemption Ministries Worldwide — Raising a redeemed generation. Experience salvation, healing, and the power of God's Word. Join us in Port Harcourt or online.">
+  <title>Redemption Ministries | The Church of the Firstborn • Warri & Worldwide</title>
+  <meta name="description" content="Redemption Ministries Worldwide — Raising a redeemed generation. Warri, Delta State Headquarters & Global branches. Experience salvation, healing, and God's Word.">
   
   <!-- Font Awesome 6 + Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,9 +17,11 @@
       box-sizing: border-box;
     }
 
+    /* Light & Dark Mode Variables */
     :root {
       --bg-deep: #05070f;
       --bg-card: rgba(8, 12, 25, 0.78);
+      --bg-surface: #0a0e1a;
       --gold-primary: #D4AF37;
       --gold-light: #F5D76E;
       --gold-dim: rgba(212, 175, 55, 0.28);
@@ -31,6 +33,21 @@
       --gradient-gold: linear-gradient(135deg, #D4AF37, #F5D76E, #C5A028);
       --gradient-royal: linear-gradient(135deg, #8B1E2A, #B22234);
       --transition: all 0.6s cubic-bezier(0.2, 0.95, 0.4, 1.1);
+      --border-light: rgba(212, 175, 55, 0.3);
+    }
+
+    body.light-mode {
+      --bg-deep: #fef8e7;
+      --bg-card: rgba(255, 248, 235, 0.85);
+      --bg-surface: #fff8ed;
+      --gold-primary: #b8860b;
+      --gold-light: #d4a017;
+      --gold-dim: rgba(184, 134, 11, 0.2);
+      --royal-red: #a52a2a;
+      --text-light: #1a1a2e;
+      --text-muted: #4a4a6a;
+      --shadow-gold: 0 20px 40px rgba(184, 134, 11, 0.1);
+      --border-light: rgba(184, 134, 11, 0.25);
     }
 
     body {
@@ -39,6 +56,33 @@
       color: var(--text-light);
       overflow-x: hidden;
       scroll-behavior: smooth;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      z-index: 1000;
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border-radius: 50px;
+      padding: 12px 18px;
+      border: 1px solid var(--gold-dim);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .theme-toggle:hover {
+      border-color: var(--gold-primary);
+      transform: scale(1.02);
     }
 
     /* ----- PRELOADER (MAJESTIC CROSS + GLOW) ----- */
@@ -57,6 +101,9 @@
       gap: 1.8rem;
       transition: opacity 1.2s ease, visibility 0.2s;
       backdrop-filter: blur(4px);
+    }
+    body.light-mode .preloader {
+      background: radial-gradient(ellipse at center, #f5ecd8 0%, #e8dcc8 100%);
     }
     .preloader.hide {
       opacity: 0;
@@ -107,7 +154,7 @@
       height: 100%;
       z-index: -1;
       pointer-events: none;
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
     .container {
@@ -123,12 +170,12 @@
       align-items: center;
       flex-wrap: wrap;
       padding: 1rem 2rem;
-      background: rgba(5, 8, 20, 0.85);
+      background: var(--bg-card);
       backdrop-filter: blur(16px);
       border-radius: 3rem;
       margin: 1.5rem 2rem;
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
       position: relative;
       z-index: 100;
     }
@@ -164,51 +211,38 @@
     .burger { display: none; background: none; border: none; font-size: 2rem; color: var(--gold-primary); cursor: pointer; }
     @media (max-width: 950px) { .nav-links { display: none; } .burger { display: block; } .navbar { flex-wrap: wrap; } }
 
-    /* Hero */
+    /* Hero Section */
     .hero { min-height: 90vh; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 3rem; padding: 3rem 2rem; }
     .hero-content { flex: 1.2; }
     .hero-content h1 { font-size: 4.6rem; font-family: 'Cormorant Garamond', serif; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; line-height: 1.2; }
     .hero-sub { font-size: 1.2rem; margin: 1.2rem 0; opacity: 0.9; line-height: 1.6; }
+    .warri-badge { display: inline-block; background: rgba(212,175,55,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem; margin-top: 0.5rem; border-left: 3px solid var(--gold-primary); }
     .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 2rem 0; }
     .btn { padding: 0.9rem 2.2rem; border-radius: 60px; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
     .btn-primary { background: var(--gradient-gold); color: #05070f; box-shadow: 0 8px 20px rgba(212,175,55,0.3); }
     .btn-outline { border: 1.5px solid var(--gold-primary); color: var(--gold-primary); background: transparent; backdrop-filter: blur(4px); }
     .btn-primary:hover, .btn-outline:hover { transform: translateY(-5px); filter: brightness(1.08); box-shadow: 0 15px 30px rgba(212,175,55,0.25); }
-    .hero-clock { flex: 0.8; min-width: 280px; background: rgba(8, 12, 25, 0.7); backdrop-filter: blur(16px); border-radius: 2rem; padding: 1.8rem; text-align: center; border: 1px solid var(--gold-dim); box-shadow: var(--shadow-gold); }
+    .hero-clock { flex: 0.8; min-width: 280px; background: var(--bg-card); backdrop-filter: blur(16px); border-radius: 2rem; padding: 1.8rem; text-align: center; border: 1px solid var(--border-light); box-shadow: var(--shadow-gold); }
     .clock-display { font-size: 2.4rem; font-weight: 800; font-family: monospace; margin: 0.8rem 0; color: var(--gold-light); letter-spacing: 2px; }
 
     /* Sections */
-    .section { padding: 5rem 0; margin: 2.5rem 0; border-radius: 2rem; background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid var(--gold-dim); transition: var(--transition); }
+    .section { padding: 5rem 0; margin: 2.5rem 0; border-radius: 2rem; background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid var(--border-light); transition: var(--transition); }
     .section-title { font-size: 2.8rem; font-family: 'Cormorant Garamond', serif; border-left: 6px solid var(--gold-primary); padding-left: 1.5rem; margin-bottom: 2.5rem; font-weight: 700; }
     .steps-grid, .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .step-card, .pillar-card, .teaching-card, .testimonial-card { background: rgba(0, 0, 0, 0.5); border-radius: 1.8rem; padding: 2rem; transition: all 0.4s; border-bottom: 3px solid var(--gold-dim); backdrop-filter: blur(4px); }
+    .step-card, .pillar-card, .teaching-card, .testimonial-card { background: rgba(0, 0, 0, 0.45); border-radius: 1.8rem; padding: 2rem; transition: all 0.4s; border-bottom: 3px solid var(--gold-dim); backdrop-filter: blur(4px); }
+    body.light-mode .step-card, body.light-mode .pillar-card, body.light-mode .teaching-card, body.light-mode .testimonial-card { background: rgba(0, 0, 0, 0.05); }
     .step-card:hover, .pillar-card:hover, .teaching-card:hover, .testimonial-card:hover { transform: translateY(-8px); border-bottom-color: var(--gold-primary); box-shadow: var(--shadow-gold); background: rgba(0, 0, 0, 0.65); }
     .scripture { font-style: italic; margin-top: 1rem; font-size: 0.9rem; color: var(--gold-light); }
     .testimonials-slider { display: flex; overflow-x: auto; gap: 2rem; padding: 1rem 0.5rem; scroll-snap-type: x mandatory; }
     .testimonial-card { min-width: 330px; scroll-snap-align: start; }
 
-    /* ===== DOPER CONTACT SECTION - NEXT LEVEL UI ===== */
+    /* DOPER CONTACT SECTION */
     .contact-mega {
-      background: linear-gradient(145deg, rgba(6, 9, 18, 0.9), rgba(2, 4, 12, 0.95));
+      background: var(--bg-card);
       backdrop-filter: blur(20px);
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-    }
-    .contact-mega::before {
-      content: '';
-      position: absolute;
-      width: 150%;
-      height: 150%;
-      top: -25%;
-      left: -25%;
-      background: radial-gradient(circle, rgba(212,175,55,0.12), transparent 70%);
-      animation: slowDrift 35s infinite alternate;
-      pointer-events: none;
-    }
-    @keyframes slowDrift {
-      0% { transform: translate(-5%, -5%) rotate(0deg); }
-      100% { transform: translate(5%, 5%) rotate(5deg); }
+      border: 1px solid var(--border-light);
     }
     .contact-grid-premium {
       display: grid;
@@ -217,98 +251,39 @@
       margin: 2rem 0;
     }
     .contact-card-gold {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.5);
       border-radius: 2rem;
       padding: 2.2rem 1.8rem;
       text-align: center;
       transition: all 0.4s;
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      border: 1px solid var(--gold-dim);
       backdrop-filter: blur(8px);
-      position: relative;
-      z-index: 2;
     }
+    body.light-mode .contact-card-gold { background: rgba(0, 0, 0, 0.06); }
     .contact-card-gold:hover {
-      transform: translateY(-10px) scale(1.02);
+      transform: translateY(-10px);
       border-color: var(--gold-primary);
-      box-shadow: 0 35px 50px rgba(212, 175, 55, 0.25);
-      background: rgba(0, 0, 0, 0.75);
+      box-shadow: var(--shadow-gold);
     }
-    .contact-icon-gold {
-      font-size: 3rem;
-      background: var(--gradient-gold);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-    }
-    .contact-card-gold h3 {
-      font-size: 1.6rem;
-      font-family: 'Cormorant Garamond', serif;
-      margin-bottom: 1rem;
-      color: var(--gold-light);
-    }
-    .contact-card-gold p, .contact-card-gold a {
-      color: var(--text-muted);
-      text-decoration: none;
-      line-height: 1.6;
-    }
+    .contact-icon-gold { font-size: 3rem; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; }
+    .contact-card-gold h3 { font-size: 1.6rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 1rem; color: var(--gold-light); }
+    .contact-card-gold p, .contact-card-gold a { color: var(--text-muted); text-decoration: none; line-height: 1.6; }
     .contact-card-gold a:hover { color: var(--gold-primary); }
-    .social-icons-float {
-      display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      margin-top: 1.2rem;
-    }
-    .social-icons-float a {
-      font-size: 1.8rem;
-      transition: 0.2s;
-    }
+    .social-icons-float { display: flex; justify-content: center; gap: 1.8rem; margin-top: 1.2rem; }
+    .social-icons-float a { font-size: 1.8rem; transition: 0.2s; }
     .social-icons-float a:hover { transform: scale(1.2); color: var(--gold-primary); }
     .newsletter-premium {
-      background: linear-gradient(125deg, rgba(0,0,0,0.7), rgba(139,30,42,0.25));
+      background: linear-gradient(125deg, rgba(0,0,0,0.5), rgba(139,30,42,0.2));
       border-radius: 2rem;
       padding: 2rem;
       margin-top: 2rem;
       text-align: center;
       border: 1px solid var(--gold-dim);
     }
-    .newsletter-premium:hover { border-color: var(--gold-primary); box-shadow: var(--shadow-gold); }
-    .newsletter-flex {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1.2rem;
-    }
-    .newsletter-flex input {
-      flex: 2;
-      min-width: 240px;
-      padding: 1rem 1.5rem;
-      border-radius: 60px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--gold-dim);
-      color: white;
-      font-size: 1rem;
-    }
-    .newsletter-flex button {
-      background: var(--gradient-gold);
-      border: none;
-      padding: 0 2rem;
-      border-radius: 60px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #05070f;
-      transition: 0.2s;
-    }
-    .newsletter-flex button:hover { transform: scale(1.02); filter: brightness(1.05); }
-
-    footer {
-      background: #030617;
-      padding: 2.5rem 0;
-      margin-top: 3rem;
-      text-align: center;
-      border-top: 1px solid var(--gold-dim);
-    }
+    .newsletter-flex { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+    .newsletter-flex input { flex: 2; min-width: 240px; padding: 1rem 1.5rem; border-radius: 60px; background: rgba(255,255,255,0.1); border: 1px solid var(--gold-dim); color: var(--text-light); font-size: 1rem; }
+    .newsletter-flex button { background: var(--gradient-gold); border: none; padding: 0 2rem; border-radius: 60px; font-weight: bold; cursor: pointer; color: #05070f; transition: 0.2s; }
+    footer { background: var(--bg-surface); padding: 2.5rem 0; margin-top: 3rem; text-align: center; border-top: 1px solid var(--gold-dim); }
     .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s ease, transform 0.9s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 768px) { .hero-content h1 { font-size: 2.6rem; } .section-title { font-size: 2rem; } }
@@ -316,7 +291,13 @@
 </head>
 <body>
 
-<!-- PRELOADER ANIMATION (MAJESTIC) -->
+<!-- THEME TOGGLE BUTTON -->
+<div class="theme-toggle" id="themeToggle">
+  <i class="fas fa-moon" id="themeIcon"></i>
+  <span id="themeText">Dark Mode</span>
+</div>
+
+<!-- PRELOADER -->
 <div class="preloader" id="preloader">
   <div class="glowing-cross"><i class="fas fa-cross"></i></div>
   <div class="loader-text">REDEMPTION MINISTRIES</div>
@@ -330,7 +311,7 @@
   <nav class="navbar">
     <div class="logo-area">
       <div class="logo-icon"><i class="fas fa-dove"></i></div>
-      <div><h1>Redemption Ministries</h1><p class="tagline">The Church of the Firstborn • Worldwide</p></div>
+      <div><h1>Redemption Ministries</h1><p class="tagline">The Church of the Firstborn • Warri & Worldwide</p></div>
     </div>
     <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
     <ul class="nav-links" id="navLinks">
@@ -347,6 +328,7 @@
     <div class="hero-content reveal">
       <h1>Stop and pray.<br>Prayer Changes everything.</h1>
       <p class="hero-sub">You too can be Part Of God's Promises — A redeemed generation walking in firstborn authority. Join thousands experiencing revival.</p>
+      <div class="warri-badge"><i class="fas fa-map-marker-alt"></i> Warri, Delta State — 3rd Marine Gate, by Walter Odili Junction</div>
       <div class="btn-group">
         <a href="#salvation" class="btn btn-primary"><i class="fas fa-heart"></i> Believe & Be Saved</a>
         <a href="#testimonies" class="btn btn-outline"><i class="fas fa-fire"></i> See Testimonies</a>
@@ -400,14 +382,15 @@
     </div>
   </section>
 
-  <!-- ========== DOPER CONTACT SECTION (PREMIUM UI) ========== -->
+  <!-- CONTACT SECTION with WARRI LOCATION -->
   <section id="connect" class="section contact-mega container reveal">
     <h2 class="section-title">Connect With The Movement</h2>
     <div class="contact-grid-premium">
       <div class="contact-card-gold">
         <div class="contact-icon-gold"><i class="fas fa-church"></i></div>
-        <h3>International Headquarters</h3>
-        <p>Omega Beach, Eastern By-Pass,<br>Port Harcourt, Nigeria.<br><strong>Branches worldwide</strong></p>
+        <h3>Warri Headquarters</h3>
+        <p><strong>3rd Marine Gate, by Walter Odili Junction</strong><br>Warri, Delta State, Nigeria</p>
+        <p style="margin-top: 0.5rem;"><i class="fas fa-globe"></i> Omega Beach, Eastern By-Pass, Port Harcourt (Intl. HQ)</p>
       </div>
       <div class="contact-card-gold">
         <div class="contact-icon-gold"><i class="fas fa-phone-alt"></i></div>
@@ -420,13 +403,9 @@
         </div>
       </div>
       <div class="contact-card-gold">
-        <div class="contact-icon-gold"><i class="fas fa-globe"></i></div>
-        <h3>Online Services</h3>
-        <p>Join us live on YouTube & Facebook<br>Sunday 8AM | Wednesday 5PM</p>
-        <div class="social-icons-float">
-          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-        </div>
+        <div class="contact-icon-gold"><i class="fas fa-clock"></i></div>
+        <h3>Service Times</h3>
+        <p>Sunday Worship: <strong>8:00 AM</strong><br>Wednesday Bible Study: <strong>5:00 PM</strong><br>Friday Covenant Service: <strong>5:00 PM</strong></p>
       </div>
     </div>
     <div class="newsletter-premium">
@@ -446,13 +425,32 @@
     <div class="footer-links" style="margin-bottom: 1rem;">
       <a href="#home">Home</a> | <a href="#salvation">Salvation</a> | <a href="#pillars">Pillars</a> | <a href="#testimonies">Testimonies</a>
     </div>
-    <p>© <span id="year-footer">2025</span> Redemption Ministries Worldwide — The Church of the Firstborn. Raising a redeemed generation.</p>
+    <p>© <span id="year-footer">2025</span> Redemption Ministries — The Church of the Firstborn. Warri, Delta State & Worldwide.</p>
     <p><i class="fas fa-heart" style="color: var(--gold-primary);"></i> “Believe. Repent. Confess. Be transformed.”</p>
   </div>
 </footer>
 
 <script>
   (function(){
+    // ===== THEME TOGGLE =====
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    let isDark = true;
+    
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.body.classList.remove('light-mode');
+        themeIcon.className = 'fas fa-moon';
+        themeText.innerText = 'Dark Mode';
+      } else {
+        document.body.classList.add('light-mode');
+        themeIcon.className = 'fas fa-sun';
+        themeText.innerText = 'Light Mode';
+      }
+    });
+
     // Preloader
     const preloader = document.getElementById('preloader');
     window.addEventListener('load', () => {
@@ -488,14 +486,14 @@
     if(burger) {
       burger.addEventListener('click', () => {
         if(navLinks.style.display === 'flex') navLinks.style.display = 'none';
-        else { navLinks.style.display = 'flex'; navLinks.style.flexDirection = 'column'; navLinks.style.position = 'absolute'; navLinks.style.top = '80px'; navLinks.style.right = '20px'; navLinks.style.background = 'rgba(5,8,20,0.95)'; navLinks.style.backdropFilter = 'blur(20px)'; navLinks.style.padding = '1.5rem 2rem'; navLinks.style.borderRadius = '20px'; navLinks.style.border = '1px solid var(--gold-dim)'; }
+        else { navLinks.style.display = 'flex'; navLinks.style.flexDirection = 'column'; navLinks.style.position = 'absolute'; navLinks.style.top = '80px'; navLinks.style.right = '20px'; navLinks.style.background = 'var(--bg-card)'; navLinks.style.backdropFilter = 'blur(20px)'; navLinks.style.padding = '1.5rem 2rem'; navLinks.style.borderRadius = '20px'; navLinks.style.border = '1px solid var(--gold-dim)'; }
       });
     }
 
     // Newsletter
     document.getElementById('newsletterForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert("🙏 Thank you! You're now subscribed to divine updates. Stay blessed."); e.target.reset(); });
 
-    // Canvas Particle System (heavenly)
+    // Canvas Particle System
     const canvas = document.getElementById('bg-canvas');
     let ctx = canvas.getContext('2d');
     let particles = [];
@@ -516,8 +514,8 @@
         p.life -= 0.002;
         if(p.life <=0) { p.x = Math.random()*canvas.width; p.y = Math.random()*canvas.height; p.life = Math.random()*1.5+0.5; }
         const grad = ctx.createRadialGradient(p.x,p.y,0, p.x,p.y, p.r*8);
-        grad.addColorStop(0, `hsla(${p.hue}, 90%, 65%, 0.8)`);
-        grad.addColorStop(0.5, `hsla(${p.hue}, 85%, 55%, 0.3)`);
+        grad.addColorStop(0, `hsla(${p.hue}, 90%, 65%, 0.7)`);
+        grad.addColorStop(0.5, `hsla(${p.hue}, 85%, 55%, 0.25)`);
         grad.addColorStop(1, `hsla(${p.hue}, 85%, 55%, 0)`);
         ctx.beginPath(); ctx.fillStyle = grad; ctx.arc(p.x, p.y, p.r*6, 0, Math.PI*2); ctx.fill();
       });

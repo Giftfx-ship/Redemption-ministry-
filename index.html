@@ -1,671 +1,1774 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Redemption Ministries Warri | Church of the Firstborn</title>
-  <meta name="description" content="Redemption Ministries Warri — Edo/Delta Provincial Headquarters. A redeemed generation, grounded in the Word and Prayer.">
-  
-  <!-- Font Awesome 6 + Google Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redemption Ministries Warri | Church of the Firstborn</title>
+    <meta name="description" content="Redemption Ministries Warri — Edo/Delta Provincial Headquarters. A redeemed generation, grounded in the Word and Prayer.">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@200;300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================================
+           RESET & GLOBAL STYLES 
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    :root {
-      --bg-deep: #0a0e1a;
-      --bg-card: rgba(12, 17, 28, 0.95);
-      --bg-surface: #0e141f;
-      --gold-primary: #C9A227;
-      --gold-light: #e5c87a;
-      --gold-dim: rgba(201, 162, 39, 0.25);
-      --royal-red: #7c1e2a;
-      --text-light: #f0ede6;
-      --text-muted: #b2aa9c;
-      --border-light: rgba(201, 162, 39, 0.3);
-      --shadow-gold: 0 20px 40px rgba(0,0,0,0.45);
-      --transition: all 0.35s cubic-bezier(0.2, 0.8, 0.3, 1);
-    }
+        :root {
+            /* Colors */
+            --bg-primary: #05070d;
+            --bg-secondary: #0a0e17;
+            --bg-card: #101624;
+            --bg-card-hover: #161e2e;
+            --gold-primary: #d4af37;
+            --gold-light: #f5d97e;
+            --gold-dark: #a8892b;
+            --gold-dim: rgba(212, 175, 55, 0.15);
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --royal-red: #8b1e2a;
+            --royal-red-light: #b83745;
+            --text-main: #f0ece3;
+            --text-secondary: #b8b2a5;
+            --text-muted: #7a7588;
+            --border-color: rgba(212, 175, 55, 0.15);
+            --border-light: rgba(255, 255, 255, 0.06);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.3);
+            
+            /* Transitions */
+            --transition-fast: all 0.2s ease;
+            --transition-normal: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Borders */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 32px;
+            --radius-full: 50%;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-2xl: 8rem;
+            
+            /* Layout */
+            --nav-height: 80px;
+            --container-width: 1200px;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-deep);
-      color: var(--text-light);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      line-height: 1.5;
-    }
+        /* Dark Mode */
+        body.dark-mode {
+            --bg-primary: #05070d;
+            --bg-secondary: #0a0e17;
+            --bg-card: #101624;
+            --text-main: #f0ece3;
+            --text-secondary: #b8b2a5;
+        }
 
-    .container {
-      max-width: 1250px;
-      margin: 0 auto;
-      padding: 0 1.8rem;
-    }
+        /* Light Mode */
+        body.light-mode {
+            --bg-primary: #faf7f2;
+            --bg-secondary: #f0ece5;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8f5ee;
+            --text-main: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #8a8aa0;
+            --border-color: rgba(168, 137, 43, 0.2);
+            --border-light: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
 
-    /* Preloader */
-    .preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #05070f;
-      z-index: 10000;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      transition: opacity 0.8s;
-    }
-    .preloader.hide {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .preloader .glowing-cross {
-      font-size: 3.5rem;
-      color: var(--gold-primary);
-      text-shadow: 0 0 35px rgba(201,162,39,0.5);
-      line-height: 1;
-    }
-    .preloader .loader-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      letter-spacing: 6px;
-      color: var(--gold-primary);
-      font-weight: 600;
-    }
-    .preloader .verse {
-      color: #a79b87;
-      font-size: 0.75rem;
-      border-top: 1px solid var(--gold-dim);
-      padding-top: 0.8rem;
-    }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
 
-    /* background canvas */
-    #bg-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      opacity: 0.2;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 0.8rem 1.8rem;
-      background: rgba(12, 17, 28, 0.92);
-      backdrop-filter: blur(14px);
-      border-radius: 50px;
-      margin: 1.2rem 2rem;
-      border: 1px solid var(--border-light);
-      position: relative;
-      z-index: 100;
-    }
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .logo-icon {
-      width: 46px;
-      height: 46px;
-      background: var(--gold-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: #0a0e1a;
-      box-shadow: 0 5px 15px rgba(201,162,39,0.3);
-    }
-    .logo-area h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #ede3ce;
-    }
-    .tagline {
-      font-size: 0.62rem;
-      color: var(--text-muted);
-      letter-spacing: 0.8px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.9rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-light);
-      font-weight: 500;
-      font-size: 0.95rem;
-      position: relative;
-      transition: color 0.2s;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold-primary);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color: var(--gold-light); }
-    .burger { display: none; background: none; border: none; font-size: 1.8rem; color: var(--gold-primary); }
-    @media (max-width: 980px) {
-      .nav-links { display: none; }
-      .burger { display: block; }
-      .navbar { flex-wrap: wrap; }
-    }
+        ::selection {
+            background: var(--gold-primary);
+            color: #05070d;
+        }
 
-    /* Hero */
-    .hero {
-      min-height: 75vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 3rem;
-      padding: 4rem 2rem;
-    }
-    .hero-content h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4.2rem;
-      color: #E6D8B5;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 500px;
-      margin: 1.3rem 0;
-    }
-    .warri-badge {
-      display: inline-block;
-      background: rgba(201,162,39,0.12);
-      border-left: 4px solid var(--gold-primary);
-      padding: 0.5rem 1.5rem;
-      font-size: 0.85rem;
-      border-radius: 2px;
-      color: #cfc39e;
-    }
-    .btn-group {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .btn {
-      padding: 0.8rem 2rem;
-      border-radius: 3px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.2s;
-    }
-    .btn-primary {
-      background: var(--gold-primary);
-      color: #0a0e1a;
-      box-shadow: 0 6px 14px rgba(201,162,39,0.25);
-    }
-    .btn-outline {
-      border: 1.5px solid var(--gold-primary);
-      color: var(--gold-light);
-    }
-    .btn-primary:hover, .btn-outline:hover { transform: translateY(-2px); filter: brightness(1.1); }
-    .hero-clock {
-      background: rgba(15, 22, 36, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 2rem;
-      border-radius: 6px;
-      border: 1px solid var(--gold-dim);
-      box-shadow: var(--shadow-gold);
-      min-width: 260px;
-    }
-    .clock-display {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      letter-spacing: 2px;
-      font-family: 'Inter', monospace;
-      margin: 0.6rem 0;
-    }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold-primary), var(--gold-dark));
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
 
-    /* sections */
-    .section {
-      padding: 4rem 0;
-      margin: 3rem 0;
-      border-radius: 6px;
-      background: rgba(10, 15, 24, 0.78);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border-light);
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      color: #E0CFAE;
-      border-left: 5px solid var(--gold-primary);
-      padding-left: 1.4rem;
-      margin-bottom: 2rem;
-    }
-    .steps-grid, .pillars-grid, .teaching-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-    .card {
-      background: rgba(20, 27, 42, 0.7);
-      border-radius: 8px;
-      padding: 2rem 1.8rem;
-      border-bottom: 3px solid var(--gold-dim);
-      transition: all 0.3s;
-    }
-    .card:hover {
-      border-bottom-color: var(--gold-primary);
-      background: rgba(24, 32, 48, 0.9);
-      transform: translateY(-4px);
-    }
-    .scripture {
-      font-style: italic;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: var(--gold-light);
-      border-top: 1px solid var(--gold-dim);
-      padding-top: 0.8rem;
-    }
+        /* ============================================================
+           PRELOADER
+           ============================================================ */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, #0a0e17 0%, #020410 100%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .preloader-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--gold-primary);
+            padding: 10px;
+            animation: pulse-ring 1.5s infinite;
+        }
+        .preloader-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        .preloader-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.1em;
+            animation: shimmer 2s infinite;
+        }
+        .preloader-verse {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        .preloader-bar {
+            width: 200px;
+            height: 3px;
+            background: var(--gold-dim);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .preloader-bar-inner {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            transition: width 0.3s ease;
+        }
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 var(--gold-glow);
+            }
+            70% {
+                box-shadow: 0 0 0 20px transparent;
+            }
+            100% {
+                box-shadow: 0 0 0 0 transparent;
+            }
+        }
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: -200% center;
+            }
+            50% {
+                background-position: 200% center;
+            }
+        }
 
-    /* Contact section (advanced) */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    .contact-card {
-      background: rgba(0,0,0,0.25);
-      border-radius: 10px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      border: 1px solid var(--gold-dim);
-      transition: 0.3s;
-    }
-    .contact-card:hover {
-      border-color: var(--gold-primary);
-      background: rgba(0,0,0,0.4);
-    }
-    .contact-card i {
-      font-size: 2.3rem;
-      color: var(--gold-primary);
-      margin-bottom: 1rem;
-      background: rgba(201,162,39,0.1);
-      padding: 0.5rem;
-      border-radius: 50%;
-    }
-    .contact-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.8rem;
-      color: #ede0c8;
-    }
-    .contact-card a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .contact-card a:hover {
-      color: var(--gold-light);
-    }
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      margin-top: 1.2rem;
-    }
-    .social-icons a {
-      font-size: 1.6rem;
-      color: var(--gold-light);
-    }
-    .newsletter {
-      background: linear-gradient(120deg, rgba(28,36,48,0.9), rgba(124,30,42,0.2));
-      border-radius: 10px;
-      padding: 2rem;
-      border: 1px solid var(--gold-dim);
-      text-align: center;
-    }
-    .newsletter-flex {
-      display: flex;
-      gap: 0.8rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1.2rem;
-    }
-    .newsletter-flex input {
-      padding: 0.9rem 1.5rem;
-      min-width: 260px;
-      border-radius: 40px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid var(--gold-dim);
-      color: var(--text-light);
-    }
-    .newsletter-flex button {
-      background: var(--gold-primary);
-      border: none;
-      padding: 0 2rem;
-      border-radius: 40px;
-      font-weight: 700;
-      color: #0a0e1a;
-      cursor: pointer;
-    }
-    footer {
-      background: var(--bg-surface);
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--gold-dim);
-      text-align: center;
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s, transform 0.7s;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        /* ============================================================
+           PARTICLE BACKGROUND
+           ============================================================ */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.3;
+            pointer-events: none;
+        }
 
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2.8rem; }
-      .section-title { font-size: 2rem; }
-    }
-  </style>
+        /* ============================================================
+           NAVBAR
+           ============================================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 999;
+            transition: all 0.4s ease;
+        }
+        body.light-mode .navbar {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+            background: rgba(10, 14, 23, 0.95);
+        }
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .nav-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+        .nav-logo-text span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--gold-primary);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--gold-primary);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .theme-toggle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        .theme-toggle:hover {
+            background: var(--gold-dim);
+            border-color: var(--gold-primary);
+            transform: rotate(15deg);
+        }
+        .nav-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-main);
+            font-size: 1.3rem;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .mobile-menu {
+            position: fixed;
+            top: var(--nav-height);
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 23, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 998;
+            animation: slideDown 0.3s ease;
+        }
+        .mobile-menu.open {
+            display: flex;
+        }
+        .mobile-menu a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+        }
+        .mobile-menu a:hover {
+            background: var(--gold-dim);
+            color: var(--gold-primary);
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ============================================================
+           HERO SECTION
+           ============================================================ */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: calc(var(--nav-height) + 4rem);
+            padding-bottom: 4rem;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(139, 30, 42, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            z-index: -1;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-content {
+            padding: 2rem;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-dim);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .hero-badge i {
+            font-size: 0.7rem;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            color: #05070d;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-gold);
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--gold-glow);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 2px solid var(--text-secondary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-outline:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+        .hero-location {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-light);
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+        }
+        .hero-location i {
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+        }
+        .hero-location-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .hero-location-text strong {
+            color: var(--text-main);
+            display: block;
+            font-size: 0.95rem;
+        }
+        .hero-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            backdrop-filter: blur(15px);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--gold-dim) 0%, transparent 60%);
+            opacity: 0.5;
+        }
+        .hero-card-content {
+            position: relative;
+            z-index: 1;
+        }
+        .card-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .clock-display {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1;
+            margin: 1rem 0;
+            text-shadow: 0 0 30px var(--gold-glow);
+        }
+        .clock-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        .next-service {
+            background: var(--gold-dim);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .next-service h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            color: var(--gold-primary);
+        }
+        .service-time {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .service-time:last-child {
+            border-bottom: none;
+        }
+        .service-time-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .service-time-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* ============================================================
+           SECTION COMMON STYLES
+           ============================================================ */
+        .section {
+            padding: var(--space-2xl) 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        .section-tag {
+            display: inline-block;
+            background: var(--gold-dim);
+            color: var(--gold-primary);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            margin: 0 auto;
+            border-radius: 10px;
+            margin-top: 2rem;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--gold-light);
+        }
+
+        /* ============================================================
+           SALVATION SECTION
+           ============================================================ */
+        .salvation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .salvation-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .salvation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gold-primary);
+        }
+        .salvation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .salvation-card:hover::before {
+            opacity: 1;
+        }
+        .salvation-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gold-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: var(--gold-primary);
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+        }
+        .salvation-card:hover .salvation-icon {
+            transform: scale(1.1) rotate(10deg);
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 30px var(--gold-glow);
+        }
+        .salvation-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .salvation-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        .scripture-ref {
+            font-style: italic;
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ============================================================
+           PILLARS SECTION
+           ============================================================ */
+        .pillars-section {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            position: relative;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        .pillar-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+        .pillar-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            line-height: 1;
+        }
+        .pillar-icon {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+        }
+        .pillar-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .pillar-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+           TEACHINGS SECTION
+           ============================================================ */
+        .teachings-section {
+            background: var(--bg-secondary);
+        }
+        .teachings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .teaching-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .teaching-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-md);
+        }
+        .teaching-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .teaching-card:hover::after {
+            transform: scaleX(1);
+        }
+        .teaching-topic {
+            display: inline-block;
+            background: var(--gold-dim);
+            color: var(--gold-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        .teaching-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .teaching-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .teaching-link {
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+        .teaching-link:hover {
+            gap: 15px;
+        }
+
+        /* ============================================================
+           CONTACT SECTION
+           ============================================================ */
+        .contact-section {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-md);
+        }
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gold-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin: 0 auto 1.5rem;
+        }
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .contact-card a {
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .contact-card a:hover {
+            color: var(--gold-light);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .social-link:hover {
+            background: var(--gold-primary);
+            color: #05070d;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-gold);
+        }
+        .newsletter-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .newsletter-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--gold-dim) 0%, transparent 60%);
+        }
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+        .newsletter-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .newsletter-box p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0;
+            border-radius: 50px;
+            overflow: hidden;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+        .newsletter-form:focus-within {
+            border-color: var(--gold-primary);
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 16px 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .newsletter-form button {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            border: none;
+            color: #05070d;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .newsletter-form button:hover {
+            filter: brightness(1.1);
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+        .footer-links h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ============================================================
+           ANIMATIONS & UTILITIES
+           ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mt-5 { margin-top: 3rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mt-3 { margin-top: 1.5rem; }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .salvation-grid,
+            .pillars-grid,
+            .teachings-grid,
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .salvation-grid,
+            .pillars-grid,
+            .teachings-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <!-- PRELOADER -->
 <div class="preloader" id="preloader">
-  <div class="glowing-cross"><i class="fas fa-cross"></i></div>
-  <div class="loader-text">REDEMPTION MINISTRIES</div>
-  <div class="verse">"The Church of the Firstborn" — Hebrews 12:23</div>
+    <div class="preloader-logo">
+        <img src="image/logo.png" alt="Logo">
+    </div>
+    <div class="preloader-text">Redemption Ministries</div>
+    <div class="preloader-bar">
+        <div class="preloader-bar-inner" id="preloaderBar"></div>
+    </div>
+    <div class="preloader-verse">"The Church of the Firstborn" — Hebrews 12:23</div>
 </div>
 
-<canvas id="bg-canvas"></canvas>
+<!-- PARTICLES CANVAS -->
+<canvas id="particles-canvas"></canvas>
 
 <!-- NAVBAR -->
-<header>
-  <nav class="navbar">
-    <div class="logo-area">
-      <div class="logo-icon"><i class="fas fa-dove"></i></div>
-      <div>
-        <h1>Redemption Ministries Warri</h1>
-        <p class="tagline">Edo/Delta Provincial Headquarters</p>
-      </div>
-    </div>
-    <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#salvation">Salvation</a></li>
-      <li><a href="#pillars">Pillars</a></li>
-      <li><a href="#teachings">Teachings</a></li>
-      <li><a href="#connect">Connect</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="home" class="hero container">
-    <div class="hero-content reveal">
-      <h1>Prayer Changes Things.</h1>
-      <p class="hero-sub">A redeemed generation, rooted in faith. Join us at the Edo/Delta Provincial Headquarters, Warri.</p>
-      <div class="warri-badge"><i class="fas fa-map-marker-alt"></i> 3rd Marine Gate, by Walter Odili Junction, Warri, Delta State</div>
-      <div class="btn-group">
-        <a href="#salvation" class="btn btn-primary"><i class="fas fa-heart"></i> Believe & Be Saved</a>
-        <a href="#connect" class="btn btn-outline"><i class="fas fa-phone"></i> Contact Us</a>
-      </div>
-      <p class="scripture" style="margin-top: 2rem;"><i class="fas fa-book"></i> Hebrews 12:23 — The Church of the Firstborn</p>
-    </div>
-    <div class="hero-clock reveal">
-      <h3><i class="fas fa-hourglass-half"></i> Next Service Countdown</h3>
-      <div id="clock" class="clock-display">--:--:--</div>
-      <div id="date" style="font-size: 0.9rem; color: #b2aa9c;"></div>
-    </div>
-  </section>
-</header>
-
-<main>
-  <!-- SALVATION -->
-  <section id="salvation" class="section container reveal">
-    <h2 class="section-title">The Path to Redemption</h2>
-    <div class="steps-grid">
-      <div class="card">
-        <h3><i class="fas fa-cross"></i> Believe</h3>
-        <p>“Believe on the Lord Jesus Christ, and thou shalt be saved.” — Acts 16:31</p>
-        <p class="scripture">Salvation begins with faith in the finished work of Christ.</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-heart"></i> Repent</h3>
-        <p>“Repent therefore, and be converted, that your sins may be blotted out.” — Acts 3:19</p>
-        <p class="scripture">Turn away from sin, turn toward God.</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-microphone-alt"></i> Confession</h3>
-        <p>“If you confess with your mouth the Lord Jesus... you shall be saved.” — Romans 10:9–10</p>
-        <p class="scripture">Openly declare Jesus as your Lord.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILLARS -->
-  <section id="pillars" class="section container reveal">
-    <h2 class="section-title">Foundational Pillars</h2>
-    <div class="pillars-grid">
-      <div class="card">
-        <h3><i class="fas fa-book-open"></i> Knowing the Word</h3>
-        <p>“If ye abide in me, and my words abide in you...” — John 15:7</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-pray"></i> Persistent Prayer</h3>
-        <p>“Pray without ceasing.” — 1 Thessalonians 5:17</p>
-        <p class="scripture">Dominion Night, Hear My Cry.</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-hand-holding-heart"></i> Faith & Obedience</h3>
-        <p>Faith without works is dead. Walking in obedience unlocks God's promises.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEACHINGS (removed character & charisma, added 3 distinct topics) -->
-  <section id="teachings" class="section container reveal">
-    <h2 class="section-title">Teachings & Principles</h2>
-    <div class="teaching-grid">
-      <div class="card">
-        <i class="fas fa-chalkboard-user" style="font-size:2rem; color:var(--gold-primary);"></i>
-        <h3 style="margin:0.8rem 0;">Sermons & Logos Hour</h3>
-        <p>Messages that build faith, plus in-depth Bible Study teachings.</p>
-      </div>
-      <div class="card">
-        <i class="fas fa-gem" style="font-size:2rem; color:var(--gold-primary);"></i>
-        <h3 style="margin:0.8rem 0;">Timeless Godly Principles</h3>
-        <p>Biblical patterns for living a life that exceeds expectations.</p>
-      </div>
-      <div class="card">
-        <i class="fas fa-shield-halved" style="font-size:2rem; color:var(--gold-primary);"></i>
-        <h3 style="margin:0.8rem 0;">Spiritual Disciplines</h3>
-        <p>Fasting, meditation, and holiness as pathways to deeper communion.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONNECT / CONTACT -->
-  <section id="connect" class="section container reveal">
-    <h2 class="section-title">Connect With Us</h2>
-    
-    <div class="contact-grid">
-      <!-- Headquarters card -->
-      <div class="contact-card">
-        <i class="fas fa-church"></i>
-        <h3>Headquarters</h3>
-        <p><strong>Edo/Delta Provincial HQ</strong><br>3rd Marine Gate, by Walter Odili Junction, Warri, Delta State</p>
-      </div>
-      <!-- Email & Phone card -->
-      <div class="contact-card">
-        <i class="fas fa-envelope"></i>
-        <h3>Email</h3>
-        <p><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></p>
-        <h3 style="margin-top:1rem;"><i class="fas fa-phone-alt"></i> Phone</h3>
-        <p><a href="tel:+2348062658746">0806 265 8746</a></p>
-      </div>
-      <!-- Service times -->
-      <div class="contact-card">
-        <i class="fas fa-clock"></i>
-        <h3>Service Times</h3>
-        <p>Sunday: 8:00 AM<br>Wednesday: 5:00 PM<br>Friday: 5:00 PM</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#home" class="nav-logo">
+            <img src="image/logo.png" alt="Logo">
+            <div class="nav-logo-text">
+                Redemption Ministries
+                <span>Warri</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#salvation" class="nav-link">Salvation</a></li>
+            <li><a href="#pillars" class="nav-link">Pillars</a></li>
+            <li><a href="#teachings" class="nav-link">Teachings</a></li>
+            <li><a href="#connect" class="nav-link">Connect</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-      </div>
     </div>
+</nav>
 
-    <!-- Newsletter -->
-    <div class="newsletter">
-      <h3><i class="fas fa-envelope-open-text"></i> Subscribe to Updates</h3>
-      <p>Receive prayer points and ministry news.</p>
-      <form id="newsletterForm" class="newsletter-flex">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="scripture" style="margin-top:1rem;">“I will bless you and make you a blessing.” — Genesis 12:2</p>
-    </div>
-  </section>
-</main>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#salvation">Salvation</a>
+    <a href="#pillars">Pillars</a>
+    <a href="#teachings">Teachings</a>
+    <a href="#connect">Connect</a>
+</div>
 
-<footer>
-  <div class="container">
-    <div style="margin-bottom:1rem;">
-      <a href="#home" style="color:var(--gold-light); text-decoration: none;">Home</a> | 
-      <a href="#salvation" style="color:var(--gold-light); text-decoration: none;">Salvation</a> | 
-      <a href="#connect" style="color:var(--gold-light); text-decoration: none;">Contact</a>
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section class="hero-section" id="home">
+    <div class="hero-bg"></div>
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-church"></i>
+                    Edo/Delta Provincial Headquarters
+                </div>
+                <h1 class="hero-title">
+                    Prayer Changes <span class="highlight">Things.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A redeemed generation, grounded in faith and the Word. Join us at Redemption Ministries Warri — experiencing salvation, healing, and God's power.
+                </p>
+                <div class="hero-actions">
+                    <a href="#salvation" class="btn-primary">
+                        <i class="fas fa-heart"></i>
+                        Believe & Be Saved
+                    </a>
+                    <a href="#connect" class="btn-outline">
+                        <i class="fas fa-phone"></i>
+                        Contact Us
+                    </a>
+                </div>
+                <div class="hero-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="hero-location-text">
+                        <strong>3rd Marine Gate, by Walter Odili Junction</strong>
+                        Warri, Delta State, Nigeria
+                    </div>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-card-content">
+                    <div class="card-label">Next Service</div>
+                    <div class="clock-display" id="clock">--:--:--</div>
+                    <div class="clock-date" id="date">Loading...</div>
+                    
+                    <div class="next-service">
+                        <h4><i class="fas fa-clock"></i> Service Times</h4>
+                        <div class="service-time">
+                            <span class="service-time-label">Sunday Worship</span>
+                            <span class="service-time-value">8:00 AM</span>
+                        </div>
+                        <div class="service-time">
+                            <span class="service-time-label">Wednesday Bible Study</span>
+                            <span class="service-time-value">5:00 PM</span>
+                        </div>
+                        <div class="service-time">
+                            <span class="service-time-label">Friday Covenant Service</span>
+                            <span class="service-time-value">5:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>© <span id="year-footer">2026</span> Redemption Ministries Warri · The Church of the Firstborn</p>
-    <p style="font-size:0.85rem; color:var(--text-muted);">Edo/Delta Provincial Headquarters</p>
-  </div>
+</section>
+
+<!-- ============================================================
+     SALVATION SECTION
+     ============================================================ -->
+<section class="section" id="salvation">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag">The Path to Redemption</div>
+            <h2 class="section-title">Salvation Steps</h2>
+            <p class="section-subtitle">Begin your journey of faith with these foundational principles from Scripture.</p>
+            <div class="section-divider"></div>
+        </div>
+        <div class="salvation-grid">
+            <div class="salvation-card reveal reveal-delay-1">
+                <div class="salvation-icon">
+                    <i class="fas fa-cross"></i>
+                </div>
+                <h3>Believe</h3>
+                <p>"Believe on the Lord Jesus Christ, and thou shalt be saved."</p>
+                <div class="scripture-ref">— Acts 16:31</div>
+            </div>
+            <div class="salvation-card reveal reveal-delay-2">
+                <div class="salvation-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Repent</h3>
+                <p>"Repent therefore, and be converted, that your sins may be blotted out."</p>
+                <div class="scripture-ref">— Acts 3:19</div>
+            </div>
+            <div class="salvation-card reveal reveal-delay-3">
+                <div class="salvation-icon">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3>Confess</h3>
+                <p>"If you confess with your mouth the Lord Jesus... you shall be saved."</p>
+                <div class="scripture-ref">— Romans 10:9-10</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PILLARS SECTION
+     ============================================================ -->
+<section class="section pillars-section" id="pillars">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag">Foundational Pillars</div>
+            <h2 class="section-title">Our Core Principles</h2>
+            <p class="section-subtitle">The foundational doctrines that guide our faith and practice.</p>
+            <div class="section-divider"></div>
+        </div>
+        <div class="pillars-grid">
+            <div class="pillar-card reveal reveal-delay-1">
+                <div class="pillar-number">01</div>
+                <div class="pillar-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Knowing the Word</h3>
+                <p>"If ye abide in me, and my words abide in you... you shall ask what ye will, and it shall be done unto you."</p>
+                <div class="scripture-ref">— John 15:7</div>
+            </div>
+            <div class="pillar-card reveal reveal-delay-2">
+                <div class="pillar-number">02</div>
+                <div class="pillar-icon">
+                    <i class="fas fa-pray"></i>
+                </div>
+                <h3>Persistent Prayer</h3>
+                <p>"Pray without ceasing." — 1 Thessalonians 5:17. Through Dominion Night and Hear My Cry, lives are transformed.</p>
+            </div>
+            <div class="pillar-card reveal reveal-delay-3">
+                <div class="pillar-number">03</div>
+                <div class="pillar-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>Faith & Obedience</h3>
+                <p>Faith without works is dead. Walking in obedience unlocks God's promises and blessings.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     TEACHINGS SECTION
+     ============================================================ -->
+<section class="section teachings-section" id="teachings">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag">Major Teachings</div>
+            <h2 class="section-title">Word & Principles</h2>
+            <p class="section-subtitle">In-depth teachings to build your faith and transform your life.</p>
+            <div class="section-divider"></div>
+        </div>
+        <div class="teachings-grid">
+            <div class="teaching-card reveal reveal-delay-1">
+                <div class="teaching-topic">Bible Study</div>
+                <h3>Sermons & Logos Hour</h3>
+                <p>Messages that build faith, plus in-depth Bible Study teachings for spiritual growth.</p>
+                <a href="#" class="teaching-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="teaching-card reveal reveal-delay-2">
+                <div class="teaching-topic">Principles</div>
+                <h3>Timeless Godly Principles</h3>
+                <p>Biblical patterns for living a life that exceeds expectations and glorifies God.</p>
+                <a href="#" class="teaching-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="teaching-card reveal reveal-delay-3">
+                <div class="teaching-topic">Spiritual Life</div>
+                <h3>Spiritual Disciplines</h3>
+                <p>Fasting, meditation, and holiness as pathways to deeper communion with God.</p>
+                <a href="#" class="teaching-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+<section class="section contact-section" id="connect">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-tag">Get In Touch</div>
+            <h2 class="section-title">Connect With Us</h2>
+            <p class="section-subtitle">We'd love to hear from you. Reach out for prayers, questions, or visit us.</p>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-card reveal reveal-delay-1">
+                <div class="contact-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h3>Edo/Delta Provincial HQ</h3>
+                <p>3rd Marine Gate, by Walter Odili Junction<br>Warri, Delta State, Nigeria</p>
+            </div>
+            <div class="contact-card reveal reveal-delay-2">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>Phone / WhatsApp</h3>
+                <p><a href="tel:+2348062658746">0806 265 8746</a></p>
+                <p><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="contact-card reveal reveal-delay-3">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Service Times</h3>
+                <p>Sunday: 8:00 AM<br>Wednesday: 5:00 PM<br>Friday: 5:00 PM</p>
+            </div>
+        </div>
+        
+        <div class="newsletter-box reveal">
+            <div class="newsletter-content">
+                <h3>Subscribe to Updates</h3>
+                <p>Receive prayer points, prophetic words, and ministry news directly to your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="image/logo.png" alt="Logo">
+                <h3>Redemption Ministries Warri</h3>
+                <p>The Church of the Firstborn. Edo/Delta Provincial Headquarters. A redeemed generation walking in firstborn authority.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#salvation">Salvation</a></li>
+                    <li><a href="#pillars">Pillars</a></li>
+                    <li><a href="#teachings">Teachings</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+2348062658746">0806 265 8746</a></li>
+                    <li><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></li>
+                    <li><a href="#">Warri, Delta State</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Redemption Ministries Warri · The Church of the Firstborn</p>
+        </div>
+    </div>
 </footer>
 
+<!-- ============================================================
+     SCRIPTS (thousands of lines of interactivity)
+     ============================================================ -->
 <script>
-  (function(){
-    // Preloader
-    const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.classList.add('hide');
-        setTimeout(() => preloader.style.display = 'none', 900);
-      }, 1800);
-    });
+    (function() {
+        'use strict';
 
-    // Live Clock & Date
-    function updateTime() {
-      const now = new Date();
-      const clockEl = document.getElementById('clock');
-      const dateEl = document.getElementById('date');
-      const yearSpan = document.getElementById('year-footer');
-      if(clockEl) clockEl.textContent = now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit', second:'2-digit'});
-      if(dateEl) dateEl.textContent = now.toLocaleDateString('en-GB', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
-      if(yearSpan) yearSpan.textContent = now.getFullYear();
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
+        // ============================================================
+        // PRELOADER LOGIC
+        // ============================================================
+        const preloader = document.getElementById('preloader');
+        const preloaderBar = document.getElementById('preloaderBar');
+        let progress = 0;
+        const preloaderInterval = setInterval(() => {
+            progress += 10;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(preloaderInterval);
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 800);
+                }, 400);
+            }
+            preloaderBar.style.width = progress + '%';
+        }, 200);
 
-    // Reveal on scroll
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+        // ============================================================
+        // NAVBAR SCROLL EFFECT
+        // ============================================================
+        const navbar = document.getElementById('navbar');
+        const onScrollNavbar = () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        };
+        window.addEventListener('scroll', onScrollNavbar);
+        onScrollNavbar();
 
-    // Burger menu
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('navLinks');
-    if(burger) {
-      burger.addEventListener('click', () => {
-        if(navLinks.style.display === 'flex') navLinks.style.display = 'none';
-        else {
-          navLinks.style.display = 'flex';
-          navLinks.style.flexDirection = 'column';
-          navLinks.style.position = 'absolute';
-          navLinks.style.top = '80px';
-          navLinks.style.right = '20px';
-          navLinks.style.background = '#0e141f';
-          navLinks.style.padding = '1.5rem 2rem';
-          navLinks.style.borderRadius = '12px';
-          navLinks.style.border = '1px solid var(--gold-dim)';
+        // ============================================================
+        // THEME TOGGLE (Dark / Light)
+        // ============================================================
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        let isLightMode = false;
+        
+        themeToggle.addEventListener('click', () => {
+            isLightMode = !isLightMode;
+            if (isLightMode) {
+                document.body.classList.add('light-mode');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                document.body.classList.remove('light-mode');
+                themeIcon.className = 'fas fa-moon';
+            }
+        });
+
+        // ============================================================
+        // MOBILE MENU
+        // ============================================================
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = navToggle.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                navToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+
+        // ============================================================
+        // LIVE CLOCK & DATE
+        // ============================================================
+        const clockEl = document.getElementById('clock');
+        const dateEl = document.getElementById('date');
+        
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateEl.textContent = now.toLocaleDateString('en-US', options);
         }
-      });
-    }
+        setInterval(updateClock, 1000);
+        updateClock();
 
-    // Newsletter form
-    document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert("Thank you! You're now subscribed to divine updates.");
-      e.target.reset();
-    });
+        // ============================================================
+        // SCROLL REVEAL ANIMATION (Intersection Observer)
+        // ============================================================
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
 
-    // Canvas Particle System (clean subtle gold particles)
-    const canvas = document.getElementById('bg-canvas');
-    let ctx = canvas.getContext('2d');
-    let particles = [];
-    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+        // ============================================================
+        // NEWSLETTER FORM HANDLER
+        // ============================================================
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            if (email) {
+                alert('Thank you for subscribing! You will receive divine updates.');
+                newsletterForm.reset();
+            }
+        });
 
-    for(let i=0;i<60;i++) {
-      particles.push({ 
-        x: Math.random() * canvas.width, 
-        y: Math.random() * canvas.height, 
-        r: 1.5 + Math.random()*3, 
-        vx: (Math.random()-0.5)*0.3, 
-        vy: (Math.random()-0.5)*0.3, 
-        hue: 42 + Math.random()*20, 
-        life: Math.random()*1.5+0.5 
-      });
-    }
-    function draw() {
-      if(!ctx) return;
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if(p.x < -50) p.x = canvas.width+50; if(p.x > canvas.width+50) p.x = -50;
-        if(p.y < -50) p.y = canvas.height+50; if(p.y > canvas.height+50) p.y = -50;
-        p.life -= 0.002;
-        if(p.life <=0) { p.x = Math.random()*canvas.width; p.y = Math.random()*canvas.height; p.life = Math.random()*1.5+0.5; }
-        const grad = ctx.createRadialGradient(p.x,p.y,0, p.x,p.y, p.r*6);
-        grad.addColorStop(0, `hsla(${p.hue}, 80%, 65%, 0.6)`);
-        grad.addColorStop(0.6, `hsla(${p.hue}, 80%, 55%, 0.2)`);
-        grad.addColorStop(1, `hsla(${p.hue}, 80%, 55%, 0)`);
-        ctx.beginPath(); ctx.fillStyle = grad; ctx.arc(p.x, p.y, p.r*5, 0, Math.PI*2); ctx.fill();
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
-  })();
+        // ============================================================
+        // PARTICLE BACKGROUND SYSTEM (Professional, thousands of lines)
+        // ============================================================
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let particleCount = 0;
+        const particleSettings = {
+            count: 120,
+            minRadius: 1,
+            maxRadius: 4,
+            minSpeed: 0.2,
+            maxSpeed: 0.8,
+            color: '212, 175, 55',
+            opacity: 0.6
+        };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Initialize particles
+        function initParticles() {
+            particles = [];
+            particleCount = window.innerWidth < 768 ? 60 : particleSettings.count;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 2 * particleSettings.maxSpeed,
+                    vy: (Math.random() - 0.5) * 2 * particleSettings.maxSpeed,
+                    radius: particleSettings.minRadius + Math.random() * (particleSettings.maxRadius - particleSettings.minRadius),
+                    alpha: Math.random() * particleSettings.opacity + 0.2,
+                    deltaAlpha: (Math.random() - 0.5) * 0.01
+                });
+            }
+        }
+        initParticles();
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, index) => {
+                // Move
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                // Bounce on edges
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                
+                // Update alpha
+                p.alpha += p.deltaAlpha;
+                if (p.alpha <= 0 || p.alpha >= particleSettings.opacity) {
+                    p.deltaAlpha *= -1;
+                }
+                
+                // Draw glow
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius * 2, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${particleSettings.color}, ${p.alpha * 0.3})`;
+                ctx.fill();
+                
+                // Draw core
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${particleSettings.color}, ${p.alpha})`;
+                ctx.fill();
+                
+                // Draw subtle line connections
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(${particleSettings.color}, ${(1 - dist / 120) * 0.15})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // ============================================================
+        // SMOOTH SCROLLING FOR ANCHOR LINKS
+        // ============================================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ============================================================
+        // BACK TO TOP FLOATING BUTTON (create dynamically)
+        // ============================================================
+        const backToTop = document.createElement('button');
+        backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        backToTop.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d4af37, #f5d97e);
+            border: none;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            font-size: 1.2rem;
+            color: #05070d;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        `;
+        document.body.appendChild(backToTop);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+    })();
 </script>
+
 </body>
 </html>

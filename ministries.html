@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministries | Redemption Ministries Warri</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .ministry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .ministry-card {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 35px 25px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .ministry-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+        }
+        
+        .ministry-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .ministry-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .ministry-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 768px) {
+            .ministry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index" class="logo">
+            <img src="images/logo.png" alt="Redemption Ministries Warri Logo">
+            <div class="logo-text">
+                <h1>Redemption Ministries</h1>
+                <span>Warri</span>
+            </div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="salvation">Salvation</a></li>
+            <li><a href="ministries" class="active">Ministries</a></li>
+            <li><a href="sermons">Sermons</a></li>
+            <li><a href="events">Events</a></li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index">Home</a>
+    <a href="about">About</a>
+    <a href="salvation">Salvation</a>
+    <a href="ministries" class="active">Ministries</a>
+    <a href="sermons">Sermons</a>
+    <a href="events">Events</a>
+    <a href="contact">Contact</a>
+</div>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Our Ministries</h1>
+        <p>Ways to get involved and grow</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Get Involved</div>
+            <h2>Serve and Grow</h2>
+        </div>
+        <div class="ministry-grid">
+            <div class="ministry-card">
+                <i class="fas fa-music ministry-icon"></i>
+                <h3>Praise & Worship</h3>
+                <p>Our worship team leads the congregation in heartfelt praise and worship every Sunday.</p>
+            </div>
+            <div class="ministry-card">
+                <i class="fas fa-chalkboard ministry-icon"></i>
+                <h3>Teaching Ministry</h3>
+                <p>Dedicated teachers who expound the Word of God through Bible studies and seminars.</p>
+            </div>
+            <div class="ministry-card">
+                <i class="fas fa-hands-helping ministry-icon"></i>
+                <h3>Outreach</h3>
+                <p>We reach out to our community with the love of Christ through evangelism and charity.</p>
+            </div>
+            <div class="ministry-card">
+                <i class="fas fa-users ministry-icon"></i>
+                <h3>Youth Ministry</h3>
+                <p>Raising the next generation of leaders who are passionate about God.</p>
+            </div>
+            <div class="ministry-card">
+                <i class="fas fa-heart ministry-icon"></i>
+                <h3>Prayer Team</h3>
+                <p>Intercessors who stand in the gap for the church and the world.</p>
+            </div>
+            <div class="ministry-card">
+                <i class="fas fa-briefcase ministry-icon"></i>
+                <h3>Media & Tech</h3>
+                <p>Bringing the gospel to the world through technology and media.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Redemption Ministries Warri">
+                <h3>Redemption Ministries Warri</h3>
+                <p>The Church of the Firstborn. Edo/Delta Provincial Headquarters.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="salvation">Salvation</a></li>
+                    <li><a href="ministries">Ministries</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="sermons">Sermons</a></li>
+                    <li><a href="events">Events</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+2348062658746">0806 265 8746</a></li>
+                    <li><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></li>
+                    <li>Warri, Delta State</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Redemption Ministries Warri. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+    
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>

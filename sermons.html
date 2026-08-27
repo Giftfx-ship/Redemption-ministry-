@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sermons | Redemption Ministries Warri</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .sermon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .sermon-card {
+            background: var(--card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .sermon-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+        }
+        
+        .sermon-thumb {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .sermon-content {
+            padding: 25px;
+        }
+        
+        .sermon-date {
+            font-size: 0.75rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .sermon-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .sermon-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+        
+        .sermon-link {
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .sermon-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index" class="logo">
+            <img src="images/logo.png" alt="Redemption Ministries Warri Logo">
+            <div class="logo-text">
+                <h1>Redemption Ministries</h1>
+                <span>Warri</span>
+            </div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="salvation">Salvation</a></li>
+            <li><a href="ministries">Ministries</a></li>
+            <li><a href="sermons" class="active">Sermons</a></li>
+            <li><a href="events">Events</a></li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index">Home</a>
+    <a href="about">About</a>
+    <a href="salvation">Salvation</a>
+    <a href="ministries">Ministries</a>
+    <a href="sermons" class="active">Sermons</a>
+    <a href="events">Events</a>
+    <a href="contact">Contact</a>
+</div>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Sermons</h1>
+        <p>Messages that build faith</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Recent</div>
+            <h2>Latest Messages</h2>
+        </div>
+        <div class="sermon-grid">
+            <div class="sermon-card">
+                <div class="sermon-thumb"><i class="fas fa-play"></i></div>
+                <div class="sermon-content">
+                    <div class="sermon-date">Sunday, January 15</div>
+                    <h3>The Power of Persistent Prayer</h3>
+                    <p>Learn how prayer changes things and transforms lives.</p>
+                    <a href="mailto:informwarri@gmail.com?subject=Sermon%20Request&body=I%20want%20to%20get%20the%20sermon%20audio" class="sermon-link">Request Audio <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="sermon-card">
+                <div class="sermon-thumb"><i class="fas fa-play"></i></div>
+                <div class="sermon-content">
+                    <div class="sermon-date">Wednesday, January 10</div>
+                    <h3>Walking in Firstborn Authority</h3>
+                    <p>Understanding your identity as a child of God.</p>
+                    <a href="mailto:informwarri@gmail.com?subject=Sermon%20Request&body=I%20want%20to%20get%20the%20sermon%20audio" class="sermon-link">Request Audio <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="sermon-card">
+                <div class="sermon-thumb"><i class="fas fa-play"></i></div>
+                <div class="sermon-content">
+                    <div class="sermon-date">Sunday, January 8</div>
+                    <h3>Faith That Moves Mountains</h3>
+                    <p>How to build unshakable faith in God's promises.</p>
+                    <a href="mailto:informwarri@gmail.com?subject=Sermon%20Request&body=I%20want%20to%20get%20the%20sermon%20audio" class="sermon-link">Request Audio <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Redemption Ministries Warri">
+                <h3>Redemption Ministries Warri</h3>
+                <p>The Church of the Firstborn. Edo/Delta Provincial Headquarters.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="salvation">Salvation</a></li>
+                    <li><a href="ministries">Ministries</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="sermons">Sermons</a></li>
+                    <li><a href="events">Events</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+2348062658746">0806 265 8746</a></li>
+                    <li><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></li>
+                    <li>Warri, Delta State</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Redemption Ministries Warri. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+    
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>

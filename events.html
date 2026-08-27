@@ -12,10 +12,8 @@
     <style>
         .event-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            max-width: 700px;
-            margin: 0 auto;
         }
         
         .event-card {
@@ -90,6 +88,16 @@
             gap: 8px;
         }
         
+        .event-notes {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            background: rgba(201,162,39,0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--gold);
+        }
+        
         /* Countdown Section */
         .countdown-section {
             margin-bottom: 50px;
@@ -160,6 +168,10 @@
         }
         
         @media (max-width: 768px) {
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .event-card {
                 flex-direction: column;
             }
@@ -229,19 +241,19 @@
 <section class="page-header">
     <div class="container">
         <h1>Upcoming Events</h1>
-        <p>Our next Sunday Service</p>
+        <p>Sunday, Wednesday & Friday Services</p>
     </div>
 </section>
 
 <section class="section">
     <div class="container">
         
-        <!-- NEXT SUNDAY SERVICE HIGHLIGHT -->
+        <!-- NEXT EVENT HIGHLIGHT -->
         <div class="next-event-highlight">
             <h2>Next Service</h2>
-            <div class="event-name">Sunday Worship Service</div>
+            <div class="event-name" id="nextEventName">Loading...</div>
             <div class="event-date-text" id="nextEventDate">Loading...</div>
-            <div class="event-time-text"><i class="fas fa-clock"></i> 8:00 AM</div>
+            <div class="event-time-text" id="nextEventTime">Loading...</div>
             
             <!-- Countdown -->
             <div class="countdown-grid">
@@ -264,11 +276,11 @@
             </div>
         </div>
         
-        <!-- UPCOMING SUNDAY SERVICES -->
+        <!-- UPCOMING SERVICES -->
         <div class="section-header">
             <div class="section-tag">Calendar</div>
-            <h2>Upcoming Sunday Services</h2>
-            <p>Automatically calculated - always shows the next 4 Sundays</p>
+            <h2>Upcoming Services</h2>
+            <p>Automatically calculated - always shows the next 9 services</p>
         </div>
         
         <div class="event-grid" id="eventGrid">
@@ -331,47 +343,94 @@
     });
     
     // ============================================
-    // AUTOMATIC SUNDAY SERVICE DATE CALCULATION
+    // AUTOMATIC SERVICE DATE CALCULATION
     // ============================================
     
-    const sundayServiceTime = { hour: 8, minute: 0 }; // 8:00 AM
+    // Define Services
+    const services = [
+        {
+            name: "Sunday Worship Service",
+            day: 0, // 0 = Sunday
+            hour: 8,
+            minute: 0,
+            description: "Join us for a powerful time of worship and the Word.",
+            icon: "fa-church"
+        },
+        {
+            name: "Wednesday Bible Study",
+            day: 3, // 3 = Wednesday
+            hour: 17,
+            minute: 0,
+            description: "Deep dive into the Word of God with our teaching team.",
+            icon: "fa-book-open"
+        },
+        {
+            name: "Friday Covenant Service",
+            day: 5, // 5 = Friday
+            hour: 17,
+            minute: 0,
+            description: "An evening of prayer and communion.",
+            icon: "fa-hands-praying"
+        }
+    ];
     
-    // Get next Sunday date
-    function getNextSunday(fromDate) {
+    // Get next occurrence for a weekly service
+    function getNextServiceDate(service, fromDate) {
         const date = new Date(fromDate);
         const currentDay = date.getDay();
         
-        // Calculate days until Sunday (0 = Sunday)
-        let daysUntil = (7 - currentDay) % 7;
+        // Calculate days until next service day
+        let daysUntil = (service.day - currentDay + 7) % 7;
         
-        // If today is Sunday, check if service time has passed
+        // If today is the service day, check if time has passed
         if (daysUntil === 0) {
             const currentHour = date.getHours();
             const currentMinute = date.getMinutes();
-            if (currentHour > sundayServiceTime.hour || 
-                (currentHour === sundayServiceTime.hour && currentMinute >= sundayServiceTime.minute)) {
+            if (currentHour > service.hour || 
+                (currentHour === service.hour && currentMinute >= service.minute)) {
                 daysUntil = 7;
             }
         }
         
         date.setDate(date.getDate() + daysUntil);
-        date.setHours(sundayServiceTime.hour, sundayServiceTime.minute, 0, 0);
+        date.setHours(service.hour, service.minute, 0, 0);
         
         return date;
     }
     
-    // Get next N Sundays
-    function getNextSundays(count) {
+    // Get all upcoming services sorted by date
+    function getUpcomingServices(count) {
         const now = new Date();
-        const sundays = [];
-        let current = getNextSunday(now);
+        const allServices = [];
         
-        for (let i = 0; i < count; i++) {
-            sundays.push(new Date(current));
-            current.setDate(current.getDate() + 7);
+        // Generate services for the next 'count' occurrences
+        for (let i = 0; i < count * 3; i++) {
+            services.forEach(service => {
+                const nextDate = getNextServiceDate(service, now);
+                allServices.push({
+                    ...service,
+                    nextDate: nextDate
+                });
+            });
+            // Advance by 7 days to get subsequent occurrences
+            now.setDate(now.getDate() + 7);
         }
         
-        return sundays;
+        // Sort by date
+        allServices.sort((a, b) => a.nextDate - b.nextDate);
+        
+        // Return unique services
+        const unique = [];
+        const seen = new Set();
+        for (const service of allServices) {
+            const key = service.nextDate.getTime();
+            if (!seen.has(key)) {
+                seen.add(key);
+                unique.push(service);
+            }
+        }
+        
+        return unique.slice(0, count);
     }
     
     // Format date for display
@@ -402,15 +461,15 @@
         return hours + ':' + (minutes < 10 ? '0' : '') + minutes + ' ' + ampm;
     }
     
-    // Render upcoming Sundays
-    function renderUpcomingSundays() {
+    // Render upcoming services
+    function renderUpcomingServices() {
         const eventGrid = document.getElementById('eventGrid');
         eventGrid.innerHTML = '';
         
-        const sundays = getNextSundays(4);
+        const upcoming = getUpcomingServices(9);
         
-        sundays.forEach((date, index) => {
-            const dateInfo = formatDate(date);
+        upcoming.forEach((service, index) => {
+            const dateInfo = formatDate(service.nextDate);
             const card = document.createElement('div');
             card.className = 'event-card';
             card.style.animation = 'fadeInUp 0.5s ease forwards';
@@ -423,10 +482,10 @@
                     <span class="year">${dateInfo.year}</span>
                 </div>
                 <div class="event-content">
-                    <h3>Sunday Worship Service</h3>
-                    <p>Join us for a powerful time of worship and the Word.</p>
+                    <h3><i class="fas ${service.icon}" style="margin-right: 8px;"></i> ${service.name}</h3>
+                    <p>${service.description}</p>
                     <div class="event-time">
-                        <i class="fas fa-clock"></i> ${formatTime(date)}
+                        <i class="fas fa-clock"></i> ${formatTime(service.nextDate)}
                     </div>
                 </div>
             `;
@@ -437,13 +496,21 @@
     
     // Render next event highlight with countdown
     function renderNextEventHighlight() {
-        const nextSunday = getNextSunday(new Date());
-        const nextEventDate = document.getElementById('nextEventDate');
+        const upcoming = getUpcomingServices(1);
+        const nextService = upcoming[0];
         
-        nextEventDate.textContent = formatFullDate(nextSunday);
+        if (!nextService) return;
+        
+        const nextEventName = document.getElementById('nextEventName');
+        const nextEventDate = document.getElementById('nextEventDate');
+        const nextEventTime = document.getElementById('nextEventTime');
+        
+        nextEventName.textContent = nextService.name;
+        nextEventDate.textContent = formatFullDate(nextService.nextDate);
+        nextEventTime.innerHTML = '<i class="fas fa-clock"></i> ' + formatTime(nextService.nextDate);
         
         // Start countdown
-        startCountdown(nextSunday);
+        startCountdown(nextService.nextDate);
     }
     
     // Countdown timer
@@ -462,7 +529,7 @@
             if (diff <= 0) {
                 // Event has passed, refresh
                 renderNextEventHighlight();
-                renderUpcomingSundays();
+                renderUpcomingServices();
                 return;
             }
             
@@ -486,12 +553,12 @@
     
     // Initialize
     renderNextEventHighlight();
-    renderUpcomingSundays();
+    renderUpcomingServices();
     
-    // Refresh events every 60 seconds
+    // Refresh every 60 seconds
     setInterval(() => {
         renderNextEventHighlight();
-        renderUpcomingSundays();
+        renderUpcomingServices();
     }, 60000);
 </script>
 

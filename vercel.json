@@ -1,0 +1,22 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-Requested-With,Content-Type,Accept" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/salvation", "destination": "/salvation.html" },
+    { "source": "/ministries", "destination": "/ministries.html" },
+    { "source": "/sermons", "destination": "/sermons.html" },
+    { "source": "/events", "destination": "/events.html" },
+    { "source": "/contact", "destination": "/contact.html" }
+  ]
+}

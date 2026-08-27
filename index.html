@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Redemption Ministries | The Church of the Firstborn • Warri & Worldwide</title>
-  <meta name="description" content="Redemption Ministries Worldwide — Raising a redeemed generation. Warri, Delta State Headquarters & Global branches. Experience salvation, healing, and God's Word.">
+  <title>Redemption Ministries Warri | Church of the Firstborn</title>
+  <meta name="description" content="Redemption Ministries Warri — Edo/Delta Provincial Headquarters. A redeemed generation, grounded in the Word and Prayer.">
   
   <!-- Font Awesome 6 + Google Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
     * {
@@ -17,37 +17,19 @@
       box-sizing: border-box;
     }
 
-    /* Light & Dark Mode Variables */
     :root {
-      --bg-deep: #05070f;
-      --bg-card: rgba(8, 12, 25, 0.78);
-      --bg-surface: #0a0e1a;
-      --gold-primary: #D4AF37;
-      --gold-light: #F5D76E;
-      --gold-dim: rgba(212, 175, 55, 0.28);
-      --royal-red: #8B1E2A;
-      --royal-glow: rgba(139, 30, 42, 0.4);
-      --text-light: #FDFBF7;
-      --text-muted: #CBC6B5;
-      --shadow-gold: 0 25px 50px rgba(212, 175, 55, 0.2);
-      --gradient-gold: linear-gradient(135deg, #D4AF37, #F5D76E, #C5A028);
-      --gradient-royal: linear-gradient(135deg, #8B1E2A, #B22234);
-      --transition: all 0.6s cubic-bezier(0.2, 0.95, 0.4, 1.1);
-      --border-light: rgba(212, 175, 55, 0.3);
-    }
-
-    body.light-mode {
-      --bg-deep: #fef8e7;
-      --bg-card: rgba(255, 248, 235, 0.85);
-      --bg-surface: #fff8ed;
-      --gold-primary: #b8860b;
-      --gold-light: #d4a017;
-      --gold-dim: rgba(184, 134, 11, 0.2);
-      --royal-red: #a52a2a;
-      --text-light: #1a1a2e;
-      --text-muted: #4a4a6a;
-      --shadow-gold: 0 20px 40px rgba(184, 134, 11, 0.1);
-      --border-light: rgba(184, 134, 11, 0.25);
+      --bg-deep: #0a0e1a;
+      --bg-card: rgba(12, 17, 28, 0.95);
+      --bg-surface: #0e141f;
+      --gold-primary: #C9A227;
+      --gold-light: #e5c87a;
+      --gold-dim: rgba(201, 162, 39, 0.25);
+      --royal-red: #7c1e2a;
+      --text-light: #f0ede6;
+      --text-muted: #b2aa9c;
+      --border-light: rgba(201, 162, 39, 0.3);
+      --shadow-gold: 0 20px 40px rgba(0,0,0,0.45);
+      --transition: all 0.35s cubic-bezier(0.2, 0.8, 0.3, 1);
     }
 
     body {
@@ -56,262 +38,385 @@
       color: var(--text-light);
       overflow-x: hidden;
       scroll-behavior: smooth;
-      transition: background 0.3s ease, color 0.3s ease;
+      line-height: 1.5;
     }
 
-    /* Theme Toggle Button */
-    .theme-toggle {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      z-index: 1000;
-      background: var(--bg-card);
-      backdrop-filter: blur(12px);
-      border-radius: 50px;
-      padding: 12px 18px;
-      border: 1px solid var(--gold-dim);
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-light);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    .theme-toggle:hover {
-      border-color: var(--gold-primary);
-      transform: scale(1.02);
+    .container {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
     }
 
-    /* ----- PRELOADER (MAJESTIC CROSS + GLOW) ----- */
+    /* Preloader */
     .preloader {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(ellipse at center, #0a0e1a 0%, #020410 100%);
+      background: #05070f;
       z-index: 10000;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      gap: 1.8rem;
-      transition: opacity 1.2s ease, visibility 0.2s;
-      backdrop-filter: blur(4px);
-    }
-    body.light-mode .preloader {
-      background: radial-gradient(ellipse at center, #f5ecd8 0%, #e8dcc8 100%);
+      gap: 1rem;
+      transition: opacity 0.8s;
     }
     .preloader.hide {
       opacity: 0;
       visibility: hidden;
     }
     .preloader .glowing-cross {
-      font-size: 5rem;
+      font-size: 3.5rem;
       color: var(--gold-primary);
-      text-shadow: 0 0 20px #D4AF37, 0 0 40px rgba(212,175,55,0.6);
-      animation: crossPulse 1.2s infinite alternate;
-    }
-    @keyframes crossPulse {
-      0% { transform: scale(0.95); text-shadow: 0 0 10px #D4AF37; }
-      100% { transform: scale(1.15); text-shadow: 0 0 35px #F5D76E, 0 0 20px #D4AF37; }
+      text-shadow: 0 0 35px rgba(201,162,39,0.5);
+      line-height: 1;
     }
     .preloader .loader-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       letter-spacing: 6px;
-      background: var(--gradient-gold);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: var(--gold-primary);
       font-weight: 600;
     }
     .preloader .verse {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      color: #a79b87;
+      font-size: 0.75rem;
       border-top: 1px solid var(--gold-dim);
       padding-top: 0.8rem;
     }
-    .preloader .progress-ring {
-      width: 60px;
-      height: 60px;
-      border: 3px solid var(--gold-dim);
-      border-top: 3px solid var(--gold-primary);
-      border-radius: 50%;
-      animation: spinRing 1s linear infinite;
-    }
-    @keyframes spinRing { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    /* Canvas Background */
+    /* background canvas */
     #bg-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.6;
+      z-index: -2;
+      opacity: 0.2;
     }
 
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Glassmorphic Premium Navbar */
+    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      padding: 1rem 2rem;
-      background: var(--bg-card);
-      backdrop-filter: blur(16px);
-      border-radius: 3rem;
-      margin: 1.5rem 2rem;
+      padding: 0.8rem 1.8rem;
+      background: rgba(12, 17, 28, 0.92);
+      backdrop-filter: blur(14px);
+      border-radius: 50px;
+      margin: 1.2rem 2rem;
       border: 1px solid var(--border-light);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
       position: relative;
       z-index: 100;
     }
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
     }
     .logo-icon {
-      width: 55px;
-      height: 55px;
-      background: var(--gradient-gold);
+      width: 46px;
+      height: 46px;
+      background: var(--gold-primary);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      color: #05070f;
-      box-shadow: 0 0 25px rgba(212,175,55,0.5);
-      animation: softGlow 3s infinite;
+      font-size: 1.5rem;
+      color: #0a0e1a;
+      box-shadow: 0 5px 15px rgba(201,162,39,0.3);
     }
-    @keyframes softGlow {
-      0%, 100% { box-shadow: 0 0 15px rgba(212,175,55,0.4); }
-      50% { box-shadow: 0 0 35px rgba(212,175,55,0.8); }
+    .logo-area h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #ede3ce;
     }
-    .logo-area h1 { font-size: 1.7rem; font-family: 'Cormorant Garamond', serif; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .tagline { font-size: 0.7rem; opacity: 0.8; letter-spacing: 1px; }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; transition: 0.3s; position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gradient-gold); transition: width 0.3s; }
+    .tagline {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      letter-spacing: 0.8px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.9rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-primary);
+      transition: width 0.3s;
+    }
     .nav-links a:hover::after { width: 100%; }
     .nav-links a:hover { color: var(--gold-light); }
-    .burger { display: none; background: none; border: none; font-size: 2rem; color: var(--gold-primary); cursor: pointer; }
-    @media (max-width: 950px) { .nav-links { display: none; } .burger { display: block; } .navbar { flex-wrap: wrap; } }
+    .burger { display: none; background: none; border: none; font-size: 1.8rem; color: var(--gold-primary); }
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .burger { display: block; }
+      .navbar { flex-wrap: wrap; }
+    }
 
-    /* Hero Section */
-    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 3rem; padding: 3rem 2rem; }
-    .hero-content { flex: 1.2; }
-    .hero-content h1 { font-size: 4.6rem; font-family: 'Cormorant Garamond', serif; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; line-height: 1.2; }
-    .hero-sub { font-size: 1.2rem; margin: 1.2rem 0; opacity: 0.9; line-height: 1.6; }
-    .warri-badge { display: inline-block; background: rgba(212,175,55,0.15); padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem; margin-top: 0.5rem; border-left: 3px solid var(--gold-primary); }
-    .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 2rem 0; }
-    .btn { padding: 0.9rem 2.2rem; border-radius: 60px; font-weight: 600; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
-    .btn-primary { background: var(--gradient-gold); color: #05070f; box-shadow: 0 8px 20px rgba(212,175,55,0.3); }
-    .btn-outline { border: 1.5px solid var(--gold-primary); color: var(--gold-primary); background: transparent; backdrop-filter: blur(4px); }
-    .btn-primary:hover, .btn-outline:hover { transform: translateY(-5px); filter: brightness(1.08); box-shadow: 0 15px 30px rgba(212,175,55,0.25); }
-    .hero-clock { flex: 0.8; min-width: 280px; background: var(--bg-card); backdrop-filter: blur(16px); border-radius: 2rem; padding: 1.8rem; text-align: center; border: 1px solid var(--border-light); box-shadow: var(--shadow-gold); }
-    .clock-display { font-size: 2.4rem; font-weight: 800; font-family: monospace; margin: 0.8rem 0; color: var(--gold-light); letter-spacing: 2px; }
+    /* Hero */
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 3rem;
+      padding: 4rem 2rem;
+    }
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.2rem;
+      color: #E6D8B5;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 1.3rem 0;
+    }
+    .warri-badge {
+      display: inline-block;
+      background: rgba(201,162,39,0.12);
+      border-left: 4px solid var(--gold-primary);
+      padding: 0.5rem 1.5rem;
+      font-size: 0.85rem;
+      border-radius: 2px;
+      color: #cfc39e;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 3px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background: var(--gold-primary);
+      color: #0a0e1a;
+      box-shadow: 0 6px 14px rgba(201,162,39,0.25);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--gold-primary);
+      color: var(--gold-light);
+    }
+    .btn-primary:hover, .btn-outline:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .hero-clock {
+      background: rgba(15, 22, 36, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 6px;
+      border: 1px solid var(--gold-dim);
+      box-shadow: var(--shadow-gold);
+      min-width: 260px;
+    }
+    .clock-display {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      font-family: 'Inter', monospace;
+      margin: 0.6rem 0;
+    }
 
-    /* Sections */
-    .section { padding: 5rem 0; margin: 2.5rem 0; border-radius: 2rem; background: var(--bg-card); backdrop-filter: blur(10px); border: 1px solid var(--border-light); transition: var(--transition); }
-    .section-title { font-size: 2.8rem; font-family: 'Cormorant Garamond', serif; border-left: 6px solid var(--gold-primary); padding-left: 1.5rem; margin-bottom: 2.5rem; font-weight: 700; }
-    .steps-grid, .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-    .step-card, .pillar-card, .teaching-card, .testimonial-card { background: rgba(0, 0, 0, 0.45); border-radius: 1.8rem; padding: 2rem; transition: all 0.4s; border-bottom: 3px solid var(--gold-dim); backdrop-filter: blur(4px); }
-    body.light-mode .step-card, body.light-mode .pillar-card, body.light-mode .teaching-card, body.light-mode .testimonial-card { background: rgba(0, 0, 0, 0.05); }
-    .step-card:hover, .pillar-card:hover, .teaching-card:hover, .testimonial-card:hover { transform: translateY(-8px); border-bottom-color: var(--gold-primary); box-shadow: var(--shadow-gold); background: rgba(0, 0, 0, 0.65); }
-    .scripture { font-style: italic; margin-top: 1rem; font-size: 0.9rem; color: var(--gold-light); }
-    .testimonials-slider { display: flex; overflow-x: auto; gap: 2rem; padding: 1rem 0.5rem; scroll-snap-type: x mandatory; }
-    .testimonial-card { min-width: 330px; scroll-snap-align: start; }
-
-    /* DOPER CONTACT SECTION */
-    .contact-mega {
-      background: var(--bg-card);
-      backdrop-filter: blur(20px);
-      position: relative;
-      overflow: hidden;
+    /* sections */
+    .section {
+      padding: 4rem 0;
+      margin: 3rem 0;
+      border-radius: 6px;
+      background: rgba(10, 15, 24, 0.78);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--border-light);
     }
-    .contact-grid-premium {
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: #E0CFAE;
+      border-left: 5px solid var(--gold-primary);
+      padding-left: 1.4rem;
+      margin-bottom: 2rem;
+    }
+    .steps-grid, .pillars-grid, .teaching-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+    .card {
+      background: rgba(20, 27, 42, 0.7);
+      border-radius: 8px;
+      padding: 2rem 1.8rem;
+      border-bottom: 3px solid var(--gold-dim);
+      transition: all 0.3s;
+    }
+    .card:hover {
+      border-bottom-color: var(--gold-primary);
+      background: rgba(24, 32, 48, 0.9);
+      transform: translateY(-4px);
+    }
+    .scripture {
+      font-style: italic;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      border-top: 1px solid var(--gold-dim);
+      padding-top: 0.8rem;
+    }
+
+    /* Contact section (advanced) */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
-    .contact-card-gold {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 2rem;
-      padding: 2.2rem 1.8rem;
+    .contact-card {
+      background: rgba(0,0,0,0.25);
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
       text-align: center;
-      transition: all 0.4s;
       border: 1px solid var(--gold-dim);
-      backdrop-filter: blur(8px);
+      transition: 0.3s;
     }
-    body.light-mode .contact-card-gold { background: rgba(0, 0, 0, 0.06); }
-    .contact-card-gold:hover {
-      transform: translateY(-10px);
+    .contact-card:hover {
       border-color: var(--gold-primary);
-      box-shadow: var(--shadow-gold);
+      background: rgba(0,0,0,0.4);
     }
-    .contact-icon-gold { font-size: 3rem; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; }
-    .contact-card-gold h3 { font-size: 1.6rem; font-family: 'Cormorant Garamond', serif; margin-bottom: 1rem; color: var(--gold-light); }
-    .contact-card-gold p, .contact-card-gold a { color: var(--text-muted); text-decoration: none; line-height: 1.6; }
-    .contact-card-gold a:hover { color: var(--gold-primary); }
-    .social-icons-float { display: flex; justify-content: center; gap: 1.8rem; margin-top: 1.2rem; }
-    .social-icons-float a { font-size: 1.8rem; transition: 0.2s; }
-    .social-icons-float a:hover { transform: scale(1.2); color: var(--gold-primary); }
-    .newsletter-premium {
-      background: linear-gradient(125deg, rgba(0,0,0,0.5), rgba(139,30,42,0.2));
-      border-radius: 2rem;
+    .contact-card i {
+      font-size: 2.3rem;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      background: rgba(201,162,39,0.1);
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+    .contact-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #ede0c8;
+    }
+    .contact-card a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-card a:hover {
+      color: var(--gold-light);
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      margin-top: 1.2rem;
+    }
+    .social-icons a {
+      font-size: 1.6rem;
+      color: var(--gold-light);
+    }
+    .newsletter {
+      background: linear-gradient(120deg, rgba(28,36,48,0.9), rgba(124,30,42,0.2));
+      border-radius: 10px;
       padding: 2rem;
-      margin-top: 2rem;
-      text-align: center;
       border: 1px solid var(--gold-dim);
+      text-align: center;
     }
-    .newsletter-flex { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
-    .newsletter-flex input { flex: 2; min-width: 240px; padding: 1rem 1.5rem; border-radius: 60px; background: rgba(255,255,255,0.1); border: 1px solid var(--gold-dim); color: var(--text-light); font-size: 1rem; }
-    .newsletter-flex button { background: var(--gradient-gold); border: none; padding: 0 2rem; border-radius: 60px; font-weight: bold; cursor: pointer; color: #05070f; transition: 0.2s; }
-    footer { background: var(--bg-surface); padding: 2.5rem 0; margin-top: 3rem; text-align: center; border-top: 1px solid var(--gold-dim); }
-    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s ease, transform 0.9s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (max-width: 768px) { .hero-content h1 { font-size: 2.6rem; } .section-title { font-size: 2rem; } }
+    .newsletter-flex {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+    .newsletter-flex input {
+      padding: 0.9rem 1.5rem;
+      min-width: 260px;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--gold-dim);
+      color: var(--text-light);
+    }
+    .newsletter-flex button {
+      background: var(--gold-primary);
+      border: none;
+      padding: 0 2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      color: #0a0e1a;
+      cursor: pointer;
+    }
+    footer {
+      background: var(--bg-surface);
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--gold-dim);
+      text-align: center;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.8rem; }
+      .section-title { font-size: 2rem; }
+    }
   </style>
 </head>
 <body>
-
-<!-- THEME TOGGLE BUTTON -->
-<div class="theme-toggle" id="themeToggle">
-  <i class="fas fa-moon" id="themeIcon"></i>
-  <span id="themeText">Toggle light Mode</span>
-</div>
 
 <!-- PRELOADER -->
 <div class="preloader" id="preloader">
   <div class="glowing-cross"><i class="fas fa-cross"></i></div>
   <div class="loader-text">REDEMPTION MINISTRIES</div>
-  <div class="progress-ring"></div>
   <div class="verse">"The Church of the Firstborn" — Hebrews 12:23</div>
 </div>
 
 <canvas id="bg-canvas"></canvas>
 
+<!-- NAVBAR -->
 <header>
   <nav class="navbar">
     <div class="logo-area">
       <div class="logo-icon"><i class="fas fa-dove"></i></div>
-      <div><h1>Redemption Ministries</h1><p class="tagline">The Church of the Firstborn • Warri & Worldwide</p></div>
+      <div>
+        <h1>Redemption Ministries Warri</h1>
+        <p class="tagline">Edo/Delta Provincial Headquarters</p>
+      </div>
     </div>
     <button class="burger" id="burger"><i class="fas fa-bars"></i></button>
     <ul class="nav-links" id="navLinks">
@@ -319,145 +424,161 @@
       <li><a href="#salvation">Salvation</a></li>
       <li><a href="#pillars">Pillars</a></li>
       <li><a href="#teachings">Teachings</a></li>
-      <li><a href="#testimonies">Testimonies</a></li>
       <li><a href="#connect">Connect</a></li>
     </ul>
   </nav>
 
+  <!-- HERO -->
   <section id="home" class="hero container">
     <div class="hero-content reveal">
-      <h1>Stop and pray.<br>Prayer Changes everything.</h1>
-      <p class="hero-sub">You too can be Part Of God's Promises — A redeemed generation walking in firstborn authority. Join thousands experiencing revival.</p>
-      <div class="warri-badge"><i class="fas fa-map-marker-alt"></i> Warri, Delta State — 3rd Marine Gate, by Walter Odili Junction</div>
+      <h1>Prayer Changes Things.</h1>
+      <p class="hero-sub">A redeemed generation, rooted in faith. Join us at the Edo/Delta Provincial Headquarters, Warri.</p>
+      <div class="warri-badge"><i class="fas fa-map-marker-alt"></i> 3rd Marine Gate, by Walter Odili Junction, Warri, Delta State</div>
       <div class="btn-group">
         <a href="#salvation" class="btn btn-primary"><i class="fas fa-heart"></i> Believe & Be Saved</a>
-        <a href="#testimonies" class="btn btn-outline"><i class="fas fa-fire"></i> See Testimonies</a>
+        <a href="#connect" class="btn btn-outline"><i class="fas fa-phone"></i> Contact Us</a>
       </div>
-      <div class="scripture"><i class="fas fa-bible"></i> Hebrews 12:23 — The Church of the Firstborn</div>
+      <p class="scripture" style="margin-top: 2rem;"><i class="fas fa-book"></i> Hebrews 12:23 — The Church of the Firstborn</p>
     </div>
     <div class="hero-clock reveal">
       <h3><i class="fas fa-hourglass-half"></i> Next Service Countdown</h3>
       <div id="clock" class="clock-display">--:--:--</div>
-      <div id="date" style="font-size: 0.9rem;"></div>
+      <div id="date" style="font-size: 0.9rem; color: #b2aa9c;"></div>
     </div>
   </section>
 </header>
 
 <main>
+  <!-- SALVATION -->
   <section id="salvation" class="section container reveal">
     <h2 class="section-title">The Path to Redemption</h2>
     <div class="steps-grid">
-      <div class="step-card"><h3><i class="fas fa-cross"></i> Believe</h3><p>“Believe on the Lord Jesus Christ, and thou shalt be saved.” — Acts 16:31</p><p class="scripture">Salvation begins with faith. Trust in His finished work on the Cross.</p></div>
-      <div class="step-card"><h3><i class="fas fa-heart"></i> Repent</h3><p>“Repent therefore, and be converted, that your sins may be blotted out.” — Acts 3:19</p><p class="scripture">Turn away from sin, turn toward God. A changed heart produces new life.</p></div>
-      <div class="step-card"><h3><i class="fas fa-microphone-alt"></i> Confession</h3><p>“If you confess with your mouth the Lord Jesus... you shall be saved.” — Romans 10:9–10</p><p class="scripture">Openly declare Jesus as your Lord and become a new creation.</p></div>
-    </div>
-  </section>
-
-  <section id="pillars" class="section container reveal">
-    <h2 class="section-title">Foundational Pillars of Faith</h2>
-    <div class="pillars-grid">
-      <div class="pillar-card"><h3><i class="fas fa-book-open"></i> Knowing the Word</h3><p>“If ye abide in me, and my words abide in you...” — John 15:7</p><p>The Word of God is the foundation for answered prayer and victorious living.</p></div>
-      <div class="pillar-card"><h3><i class="fas fa-pray"></i> Persistent Prayer</h3><p>“Pray without ceasing.” — 1 Thessalonians 5:17</p><p>Dominion Night, Hear My Cry — lives are transformed through prayer.</p></div>
-      <div class="pillar-card"><h3><i class="fas fa-hand-holding-heart"></i> Faith & Obedience</h3><p>Faith without works is dead. Walking in obedience unlocks God's promises.</p></div>
-    </div>
-  </section>
-
-  <section id="teachings" class="section container reveal">
-    <h2 class="section-title">Major Teachings & Blog</h2>
-    <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px,1fr));">
-      <div class="teaching-card"><i class="fas fa-chalkboard-user" style="font-size:2rem;color:var(--gold-primary);"></i><h3 style="margin:0.8rem 0;">Sermons & Logos Hour</h3><p>Messages that build faith, plus in-depth Bible Study teachings.</p></div>
-      <div class="teaching-card"><i class="fas fa-feather-alt" style="font-size:2rem;color:var(--gold-primary);"></i><h3 style="margin:0.8rem 0;">Character & Charisma</h3><p>“Prisoners of Character” — defining instruments for a spirit-led life.</p></div>
-      <div class="teaching-card"><i class="fas fa-chart-line" style="font-size:2rem;color:var(--gold-primary);"></i><h3 style="margin:0.8rem 0;">Timeless Godly Principles</h3><p>Exceed expectations by following biblical patterns of faith.</p></div>
-    </div>
-    <div class="step-card" style="margin-top: 2rem;"><div class="blog-title">📖 Timeless Godly Principles To Exceed Expectations</div><p>Beloved, God expects you to live above limitation. Scripture shows clear patterns for a life that exceeds expectations. Never limit the Almighty... <a href="#" style="color:var(--gold-primary);">Read more →</a></p></div>
-  </section>
-
-  <section id="testimonies" class="section container reveal">
-    <h2 class="section-title">God's Promises Are True — Testimonies</h2>
-    <div class="testimonials-slider">
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I entered last year's crossover service with high expectations... I experienced incredible breakthroughs and favor throughout the year.”</p><p class="scripture">— I. E. Kayii</p></div>
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“I had difficulty breathing some days ago, but today God has healed me; to God be all the glory.”</p><p class="scripture">— Inaasi Karmille Leere</p></div>
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“My son fainted in school... after prayers and faith, he was fully discharged. Glory to God!”</p><p class="scripture">— Dr. (Mrs) Salome Douglas</p></div>
-      <div class="testimonial-card"><i class="fas fa-quote-left"></i><p>“Crossover service changed my story! God's favor located me and my business turned around.”</p><p class="scripture">— Faith O.</p></div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION with WARRI LOCATION -->
-  <section id="connect" class="section contact-mega container reveal">
-    <h2 class="section-title">Connect With The Movement</h2>
-    <div class="contact-grid-premium">
-      <div class="contact-card-gold">
-        <div class="contact-icon-gold"><i class="fas fa-church"></i></div>
-        <h3>Warri Headquarters</h3>
-        <p><strong>3rd Marine Gate, by Walter Odili Junction</strong><br>Warri, Delta State, Nigeria</p>
-        <p style="margin-top: 0.5rem;"><i class="fas fa-globe"></i> Omega Beach, Eastern By-Pass, Port Harcourt (Intl. HQ)</p>
+      <div class="card">
+        <h3><i class="fas fa-cross"></i> Believe</h3>
+        <p>“Believe on the Lord Jesus Christ, and thou shalt be saved.” — Acts 16:31</p>
+        <p class="scripture">Salvation begins with faith in the finished work of Christ.</p>
       </div>
-      <div class="contact-card-gold">
-        <div class="contact-icon-gold"><i class="fas fa-phone-alt"></i></div>
-        <h3>Call / WhatsApp</h3>
-        <p><a href="tel:+234903222664">+234 903 222 664</a><br><a href="tel:+2349164624021">+234 916 462 4021</a></p>
-        <div class="social-icons-float">
+      <div class="card">
+        <h3><i class="fas fa-heart"></i> Repent</h3>
+        <p>“Repent therefore, and be converted, that your sins may be blotted out.” — Acts 3:19</p>
+        <p class="scripture">Turn away from sin, turn toward God.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-microphone-alt"></i> Confession</h3>
+        <p>“If you confess with your mouth the Lord Jesus... you shall be saved.” — Romans 10:9–10</p>
+        <p class="scripture">Openly declare Jesus as your Lord.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section id="pillars" class="section container reveal">
+    <h2 class="section-title">Foundational Pillars</h2>
+    <div class="pillars-grid">
+      <div class="card">
+        <h3><i class="fas fa-book-open"></i> Knowing the Word</h3>
+        <p>“If ye abide in me, and my words abide in you...” — John 15:7</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-pray"></i> Persistent Prayer</h3>
+        <p>“Pray without ceasing.” — 1 Thessalonians 5:17</p>
+        <p class="scripture">Dominion Night, Hear My Cry.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-hand-holding-heart"></i> Faith & Obedience</h3>
+        <p>Faith without works is dead. Walking in obedience unlocks God's promises.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHINGS (removed character & charisma, added 3 distinct topics) -->
+  <section id="teachings" class="section container reveal">
+    <h2 class="section-title">Teachings & Principles</h2>
+    <div class="teaching-grid">
+      <div class="card">
+        <i class="fas fa-chalkboard-user" style="font-size:2rem; color:var(--gold-primary);"></i>
+        <h3 style="margin:0.8rem 0;">Sermons & Logos Hour</h3>
+        <p>Messages that build faith, plus in-depth Bible Study teachings.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-gem" style="font-size:2rem; color:var(--gold-primary);"></i>
+        <h3 style="margin:0.8rem 0;">Timeless Godly Principles</h3>
+        <p>Biblical patterns for living a life that exceeds expectations.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-shield-halved" style="font-size:2rem; color:var(--gold-primary);"></i>
+        <h3 style="margin:0.8rem 0;">Spiritual Disciplines</h3>
+        <p>Fasting, meditation, and holiness as pathways to deeper communion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT / CONTACT -->
+  <section id="connect" class="section container reveal">
+    <h2 class="section-title">Connect With Us</h2>
+    
+    <div class="contact-grid">
+      <!-- Headquarters card -->
+      <div class="contact-card">
+        <i class="fas fa-church"></i>
+        <h3>Headquarters</h3>
+        <p><strong>Edo/Delta Provincial HQ</strong><br>3rd Marine Gate, by Walter Odili Junction, Warri, Delta State</p>
+      </div>
+      <!-- Email & Phone card -->
+      <div class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <p><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></p>
+        <h3 style="margin-top:1rem;"><i class="fas fa-phone-alt"></i> Phone</h3>
+        <p><a href="tel:+2348062658746">0806 265 8746</a></p>
+      </div>
+      <!-- Service times -->
+      <div class="contact-card">
+        <i class="fas fa-clock"></i>
+        <h3>Service Times</h3>
+        <p>Sunday: 8:00 AM<br>Wednesday: 5:00 PM<br>Friday: 5:00 PM</p>
+        <div class="social-icons">
           <a href="#"><i class="fab fa-whatsapp"></i></a>
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-      <div class="contact-card-gold">
-        <div class="contact-icon-gold"><i class="fas fa-clock"></i></div>
-        <h3>Service Times</h3>
-        <p>Sunday Worship: <strong>8:00 AM</strong><br>Wednesday Bible Study: <strong>5:00 PM</strong><br>Friday Covenant Service: <strong>5:00 PM</strong></p>
-      </div>
     </div>
-    <div class="newsletter-premium">
-      <h3><i class="fas fa-envelope-open-text"></i> Receive Divine Updates</h3>
-      <p>Enter your email to get prayer points, prophetic words and church news.</p>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+      <h3><i class="fas fa-envelope-open-text"></i> Subscribe to Updates</h3>
+      <p>Receive prayer points and ministry news.</p>
       <form id="newsletterForm" class="newsletter-flex">
         <input type="email" placeholder="Your email address" required>
-        <button type="submit">Subscribe <i class="fas fa-arrow-right"></i></button>
+        <button type="submit">Subscribe</button>
       </form>
-      <p class="scripture" style="margin-top: 1rem;">“I will bless you and make you a blessing.” — Genesis 12:2</p>
+      <p class="scripture" style="margin-top:1rem;">“I will bless you and make you a blessing.” — Genesis 12:2</p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="container">
-    <div class="footer-links" style="margin-bottom: 1rem;">
-      <a href="#home">Home</a> | <a href="#salvation">Salvation</a> | <a href="#pillars">Pillars</a> | <a href="#testimonies">Testimonies</a>
+    <div style="margin-bottom:1rem;">
+      <a href="#home" style="color:var(--gold-light); text-decoration: none;">Home</a> | 
+      <a href="#salvation" style="color:var(--gold-light); text-decoration: none;">Salvation</a> | 
+      <a href="#connect" style="color:var(--gold-light); text-decoration: none;">Contact</a>
     </div>
-    <p>© <span id="year-footer">2025</span> Redemption Ministries — The Church of the Firstborn. Warri, Delta State & Worldwide.</p>
-    <p><i class="fas fa-heart" style="color: var(--gold-primary);"></i> “Believe. Repent. Confess. Be transformed.”</p>
+    <p>© <span id="year-footer">2026</span> Redemption Ministries Warri · The Church of the Firstborn</p>
+    <p style="font-size:0.85rem; color:var(--text-muted);">Edo/Delta Provincial Headquarters</p>
   </div>
 </footer>
 
 <script>
   (function(){
-    // ===== THEME TOGGLE =====
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const themeText = document.getElementById('themeText');
-    let isDark = true;
-    
-    themeToggle.addEventListener('click', () => {
-      isDark = !isDark;
-      if (isDark) {
-        document.body.classList.remove('light-mode');
-        themeIcon.className = 'fas fa-moon';
-        themeText.innerText = 'Dark Mode';
-      } else {
-        document.body.classList.add('light-mode');
-        themeIcon.className = 'fas fa-sun';
-        themeText.innerText = 'Light Mode';
-      }
-    });
-
     // Preloader
     const preloader = document.getElementById('preloader');
     window.addEventListener('load', () => {
       setTimeout(() => {
         preloader.classList.add('hide');
-        setTimeout(() => preloader.style.display = 'none', 1100);
-      }, 2000);
+        setTimeout(() => preloader.style.display = 'none', 900);
+      }, 1800);
     });
 
     // Live Clock & Date
@@ -482,18 +603,32 @@
 
     // Burger menu
     const burger = document.getElementById('burger');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.getElementById('navLinks');
     if(burger) {
       burger.addEventListener('click', () => {
         if(navLinks.style.display === 'flex') navLinks.style.display = 'none';
-        else { navLinks.style.display = 'flex'; navLinks.style.flexDirection = 'column'; navLinks.style.position = 'absolute'; navLinks.style.top = '80px'; navLinks.style.right = '20px'; navLinks.style.background = 'var(--bg-card)'; navLinks.style.backdropFilter = 'blur(20px)'; navLinks.style.padding = '1.5rem 2rem'; navLinks.style.borderRadius = '20px'; navLinks.style.border = '1px solid var(--gold-dim)'; }
+        else {
+          navLinks.style.display = 'flex';
+          navLinks.style.flexDirection = 'column';
+          navLinks.style.position = 'absolute';
+          navLinks.style.top = '80px';
+          navLinks.style.right = '20px';
+          navLinks.style.background = '#0e141f';
+          navLinks.style.padding = '1.5rem 2rem';
+          navLinks.style.borderRadius = '12px';
+          navLinks.style.border = '1px solid var(--gold-dim)';
+        }
       });
     }
 
-    // Newsletter
-    document.getElementById('newsletterForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert("🙏 Thank you! You're now subscribed to divine updates. Stay blessed."); e.target.reset(); });
+    // Newsletter form
+    document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Thank you! You're now subscribed to divine updates.");
+      e.target.reset();
+    });
 
-    // Canvas Particle System
+    // Canvas Particle System (clean subtle gold particles)
     const canvas = document.getElementById('bg-canvas');
     let ctx = canvas.getContext('2d');
     let particles = [];
@@ -501,8 +636,16 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    for(let i=0;i<80;i++) {
-      particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: 2+Math.random()*5, vx: (Math.random()-0.5)*0.4, vy: (Math.random()-0.5)*0.4, hue: 190+Math.random()*70, life: Math.random()*1.5+0.5 });
+    for(let i=0;i<60;i++) {
+      particles.push({ 
+        x: Math.random() * canvas.width, 
+        y: Math.random() * canvas.height, 
+        r: 1.5 + Math.random()*3, 
+        vx: (Math.random()-0.5)*0.3, 
+        vy: (Math.random()-0.5)*0.3, 
+        hue: 42 + Math.random()*20, 
+        life: Math.random()*1.5+0.5 
+      });
     }
     function draw() {
       if(!ctx) return;
@@ -513,11 +656,11 @@
         if(p.y < -50) p.y = canvas.height+50; if(p.y > canvas.height+50) p.y = -50;
         p.life -= 0.002;
         if(p.life <=0) { p.x = Math.random()*canvas.width; p.y = Math.random()*canvas.height; p.life = Math.random()*1.5+0.5; }
-        const grad = ctx.createRadialGradient(p.x,p.y,0, p.x,p.y, p.r*8);
-        grad.addColorStop(0, `hsla(${p.hue}, 90%, 65%, 0.7)`);
-        grad.addColorStop(0.5, `hsla(${p.hue}, 85%, 55%, 0.25)`);
-        grad.addColorStop(1, `hsla(${p.hue}, 85%, 55%, 0)`);
-        ctx.beginPath(); ctx.fillStyle = grad; ctx.arc(p.x, p.y, p.r*6, 0, Math.PI*2); ctx.fill();
+        const grad = ctx.createRadialGradient(p.x,p.y,0, p.x,p.y, p.r*6);
+        grad.addColorStop(0, `hsla(${p.hue}, 80%, 65%, 0.6)`);
+        grad.addColorStop(0.6, `hsla(${p.hue}, 80%, 55%, 0.2)`);
+        grad.addColorStop(1, `hsla(${p.hue}, 80%, 55%, 0)`);
+        ctx.beginPath(); ctx.fillStyle = grad; ctx.arc(p.x, p.y, p.r*5, 0, Math.PI*2); ctx.fill();
       });
       requestAnimationFrame(draw);
     }

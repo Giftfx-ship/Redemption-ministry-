@@ -10,67 +10,197 @@
     <link rel="stylesheet" href="css/style.css">
     
     <style>
-        .sermon-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        /* Request Sermon Section */
+        .request-section {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .sermon-card {
+        .request-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .request-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .request-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        
+        /* Steps */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .step-card {
             background: var(--card);
             border-radius: 15px;
-            overflow: hidden;
+            padding: 35px 25px;
+            text-align: center;
             border: 1px solid var(--border);
+            position: relative;
             transition: all 0.3s;
         }
         
-        .sermon-card:hover {
+        .step-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
             box-shadow: var(--shadow);
         }
         
-        .sermon-thumb {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--primary);
+        .step-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            color: rgba(201, 162, 39, 0.15);
+            line-height: 1;
         }
         
-        .sermon-content {
-            padding: 25px;
-        }
-        
-        .sermon-date {
-            font-size: 0.75rem;
+        .step-icon {
+            font-size: 2.5rem;
             color: var(--gold);
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         
-        .sermon-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-        
-        .sermon-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .step-card h3 {
+            font-size: 1.2rem;
             margin-bottom: 15px;
         }
         
-        .sermon-link {
-            color: var(--gold);
+        .step-card p {
             font-size: 0.85rem;
-            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Request Form */
+        .request-form-container {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid var(--border);
+        }
+        
+        .request-form-container h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .request-form-container > p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group select {
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        /* Email Note */
+        .email-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .email-note i {
+            color: var(--gold);
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid var(--gold);
+        }
+        
+        .success-message i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .success-message h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .success-message p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            .sermon-grid {
+            .steps-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .request-form-container {
+                padding: 25px;
             }
         }
     </style>
@@ -114,44 +244,104 @@
 <section class="page-header">
     <div class="container">
         <h1>Sermons</h1>
-        <p>Messages that build faith</p>
+        <p>Request a sermon</p>
     </div>
 </section>
 
 <section class="section">
     <div class="container">
-        <div class="section-header">
-            <div class="section-tag">Recent</div>
-            <h2>Latest Messages</h2>
-        </div>
-        <div class="sermon-grid">
-            <div class="sermon-card">
-                <div class="sermon-thumb"><i class="fas fa-play"></i></div>
-                <div class="sermon-content">
-                    <div class="sermon-date">Sunday, January 15</div>
-                    <h3>The Power of Persistent Prayer</h3>
-                    <p>Learn how prayer changes things and transforms lives.</p>
-                    <a href="mailto:informwarri@gmail.com?subject=Sermon%20Request&body=I%20want%20to%20get%20the%20sermon%20audio" class="sermon-link">Request Audio <i class="fas fa-arrow-right"></i></a>
+        <div class="request-section">
+            
+            <!-- Header -->
+            <div class="request-header">
+                <div class="section-tag">Request</div>
+                <h2>How to Request a Sermon</h2>
+                <p>Follow these simple steps to get the sermon you need.</p>
+            </div>
+            
+            <!-- Steps -->
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Fill the Form</h3>
+                    <p>Complete the form below with your name, email, and the sermon you need.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3>Click Send</h3>
+                    <p>Your email app will open with the message pre-filled. Just hit send.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Wait for Response</h3>
+                    <p>We'll get back to you with the sermon audio or transcript.</p>
                 </div>
             </div>
-            <div class="sermon-card">
-                <div class="sermon-thumb"><i class="fas fa-play"></i></div>
-                <div class="sermon-content">
-                    <div class="sermon-date">Wednesday, January 10</div>
-                    <h3>Walking in Firstborn Authority</h3>
-                    <p>Understanding your identity as a child of God.</p>
-                    <a href="mailto:informwarri@gmail.com?subject=Sermon%20Request&body=I%20want%20to%20get%20the%20sermon%20audio" class="sermon-link">Request Audio <i class="fas fa-arrow-right"></i></a>
+            
+            <!-- Request Form -->
+            <div class="request-form-container">
+                <h3>Request a Sermon</h3>
+                <p>Fill this form and it will open your email app to send us.</p>
+                
+                <form id="sermonRequestForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sermonTopic">Sermon Topic</label>
+                        <select id="sermonTopic" name="sermonTopic" required>
+                            <option value="">Select a topic...</option>
+                            <option value="The Power of Persistent Prayer">The Power of Persistent Prayer</option>
+                            <option value="Walking in Firstborn Authority">Walking in Firstborn Authority</option>
+                            <option value="Faith That Moves Mountains">Faith That Moves Mountains</option>
+                            <option value="Timeless Godly Principles">Timeless Godly Principles</option>
+                            <option value="Spiritual Disciplines">Spiritual Disciplines</option>
+                            <option value="Other">Other (specify below)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Details</label>
+                        <textarea id="message" name="message" placeholder="Any specific details or questions..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Request via Email
+                    </button>
+                </form>
+                
+                <!-- Success Message (hidden by default) -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Your Email App is Opening!</h4>
+                    <p>Just press send in your email app to complete the request.</p>
+                </div>
+                
+                <!-- Email Note -->
+                <div class="email-note">
+                    <i class="fas fa-info-circle"></i>
+                    This will open your email app. We'll respond as soon as possible.
                 </div>
             </div>
-            <div class="sermon-card">
-                <div class="sermon-thumb"><i class="fas fa-play"></i></div>
-                <div class="sermon-content">
-                    <div class="sermon-date">Sunday, January 8</div>
-                    <h3>Faith That Moves Mountains</h3>
-                    <p>How to build unshakable faith in God's promises.</p>
-                    <a href="mailto:informwarri@gmail.com?subject=Sermon%20Request&body=I%20want%20to%20get%20the%20sermon%20audio" class="sermon-link">Request Audio <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -207,6 +397,43 @@
     const mobileMenu = document.getElementById('mobileMenu');
     navToggle.addEventListener('click', function() {
         mobileMenu.classList.toggle('open');
+    });
+    
+    // Sermon Request Form - Opens Email Client
+    const sermonRequestForm = document.getElementById('sermonRequestForm');
+    const successMessage = document.getElementById('successMessage');
+    
+    sermonRequestForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const sermonTopic = document.getElementById('sermonTopic').value;
+        const message = document.getElementById('message').value;
+        
+        // Construct mailto link
+        const mailtoLink = 'mailto:informwarri@gmail.com'
+            + '?subject=' + encodeURIComponent('Sermon Request: ' + sermonTopic)
+            + '&body=' + encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n\n' +
+                'Sermon Topic: ' + sermonTopic + '\n' +
+                'Additional Details: ' + message
+            );
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Show success message
+        successMessage.style.display = 'block';
+        
+        // Reset form
+        sermonRequestForm.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(function() {
+            successMessage.style.display = 'none';
+        }, 5000);
     });
 </script>
 

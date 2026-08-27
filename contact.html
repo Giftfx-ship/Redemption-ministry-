@@ -77,3 +77,247 @@
             margin-bottom: 8px;
             color: var(--text-muted);
         }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info,
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index" class="logo">
+            <img src="images/logo.png" alt="Redemption Ministries Warri Logo">
+            <div class="logo-text">
+                <h1>Redemption Ministries</h1>
+                <span>Warri</span>
+            </div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="salvation">Salvation</a></li>
+            <li><a href="ministries">Ministries</a></li>
+            <li><a href="sermons">Sermons</a></li>
+            <li><a href="events">Events</a></li>
+            <li><a href="contact" class="active">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index">Home</a>
+    <a href="about">About</a>
+    <a href="salvation">Salvation</a>
+    <a href="ministries">Ministries</a>
+    <a href="sermons">Sermons</a>
+    <a href="events">Events</a>
+    <a href="contact" class="active">Contact</a>
+</div>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Address</h4>
+                        <p>3rd Marine Gate, by Walter Odili Junction<br>Warri, Delta State, Nigeria</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+2348062658746">0806 265 8746</a></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Service Times</h4>
+                        <p>Sunday: 8:00 AM<br>Wednesday: 5:00 PM<br>Friday: 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form (opens email client) -->
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">Fill this form and it will open your email app to send to us directly.</p>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-envelope"></i> Send via Email
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Redemption Ministries Warri">
+                <h3>Redemption Ministries Warri</h3>
+                <p>The Church of the Firstborn. Edo/Delta Provincial Headquarters.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="salvation">Salvation</a></li>
+                    <li><a href="ministries">Ministries</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="sermons">Sermons</a></li>
+                    <li><a href="events">Events</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+2348062658746">0806 265 8746</a></li>
+                    <li><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></li>
+                    <li>Warri, Delta State</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Redemption Ministries Warri. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+    
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('open');
+    });
+    
+    // CONTACT FORM - Opens Email Client
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Construct mailto link
+        const mailtoLink = 'mailto:informwarri@gmail.com'
+            + '?subject=' + encodeURIComponent(subject)
+            + '&body=' + encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n\n' +
+                'Message:\n' + message
+            );
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Reset form
+        contactForm.reset();
+    });
+</script>
+
+</body>
+</html>

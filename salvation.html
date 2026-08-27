@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvation | Redemption Ministries Warri</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .salvation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .salvation-card {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .salvation-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+        }
+        
+        .salvation-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: rgba(201,162,39,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .salvation-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .salvation-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .salvation-verse {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--gold);
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+        
+        .prayer-section {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 50px;
+            border: 1px solid var(--border);
+        }
+        
+        .prayer-section h2 {
+            margin-bottom: 20px;
+        }
+        
+        .prayer-section p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .salvation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .prayer-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index" class="logo">
+            <img src="images/logo.png" alt="Redemption Ministries Warri Logo">
+            <div class="logo-text">
+                <h1>Redemption Ministries</h1>
+                <span>Warri</span>
+            </div>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="salvation" class="active">Salvation</a></li>
+            <li><a href="ministries">Ministries</a></li>
+            <li><a href="sermons">Sermons</a></li>
+            <li><a href="events">Events</a></li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index">Home</a>
+    <a href="about">About</a>
+    <a href="salvation" class="active">Salvation</a>
+    <a href="ministries">Ministries</a>
+    <a href="sermons">Sermons</a>
+    <a href="events">Events</a>
+    <a href="contact">Contact</a>
+</div>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Steps to Salvation</h1>
+        <p>Begin your journey with these foundational principles</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">The Path</div>
+            <h2>Three Simple Steps</h2>
+        </div>
+        <div class="salvation-grid">
+            <div class="salvation-card">
+                <div class="salvation-icon">
+                    <i class="fas fa-cross"></i>
+                </div>
+                <h3>Believe</h3>
+                <p>"For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life."</p>
+                <div class="salvation-verse">— John 3:16</div>
+            </div>
+            <div class="salvation-card">
+                <div class="salvation-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Repent</h3>
+                <p>"Repent therefore and be converted, that your sins may be blotted out, so that times of refreshing may come from the presence of the Lord."</p>
+                <div class="salvation-verse">— Acts 3:19</div>
+            </div>
+            <div class="salvation-card">
+                <div class="salvation-icon">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3>Confess</h3>
+                <p>"If you confess with your mouth the Lord Jesus and believe in your heart that God has raised Him from the dead, you will be saved."</p>
+                <div class="salvation-verse">— Romans 10:9</div>
+            </div>
+        </div>
+        
+        <div class="prayer-section">
+            <h2>Ready to Give Your Life to Christ?</h2>
+            <p>Say this prayer from your heart and believe in Jesus Christ. He will forgive your sins and give you eternal life.</p>
+            <p style="font-style: italic; color: var(--gold); font-size: 1.2rem;">"Lord Jesus, I believe You died for my sins. I repent of my sins and confess You as my Lord and Savior. Thank You for saving me. Amen."</p>
+            <a href="mailto:informwarri@gmail.com?subject=Salvation%20Decision&body=I%20just%20gave%20my%20life%20to%20Christ" class="btn btn-primary" style="margin-top: 30px;">
+                <i class="fas fa-envelope"></i> Email Us About Your Decision
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Redemption Ministries Warri">
+                <h3>Redemption Ministries Warri</h3>
+                <p>The Church of the Firstborn. Edo/Delta Provincial Headquarters.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="salvation">Salvation</a></li>
+                    <li><a href="ministries">Ministries</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="sermons">Sermons</a></li>
+                    <li><a href="events">Events</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+2348062658746">0806 265 8746</a></li>
+                    <li><a href="mailto:informwarri@gmail.com">informwarri@gmail.com</a></li>
+                    <li>Warri, Delta State</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Redemption Ministries Warri. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+    
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>
